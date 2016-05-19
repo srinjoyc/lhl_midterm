@@ -1,0 +1,22 @@
+
+<% if @message && @message.errors.any? %>
+  <div>
+    <strong>Some issues with your message, please fix them:</strong>
+    <ul>
+      <% @message.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<% @messages.each do |message| %> 
+    <div class="message">
+        <h3><small>(by: <%= message.author %>)<a href="/messages/<%= message.id %>"><%= message.title %></a></small></h3>
+        <p>
+            <%= message.content %>
+        </p>
+        
+    </div>   
+<%end%>
+<a href="/messages/new">Post a message... It's FREE (for now)!</a>

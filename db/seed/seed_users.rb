@@ -1,0 +1,6 @@
+User.create(username: "Bruce_Lee", password: "brucelee")
+User.create(username: "Mike_Tyson", password: "miketyson")
+User.create(username: "Tony_Jaa", password: "tonyjaa")
+User.create(username: "Pink_Panther", password: "pinkpanther")
+User.create(username: "Bruce_Wayne", password: "brucewayne")
+User.create(username: "Peter_Parker", password: "peterparker")
