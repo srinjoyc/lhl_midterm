@@ -50,13 +50,13 @@ end
 post '/user/:id/encounter' do
   @encounter = Encounter.create(
     attacker_id: nil,
-    defender_id: session[:user_id],
+    defender_id: session[:id],
     date: params[:date],
     tier: params[:tier],
     location: params[:location]
 
   )
-  redirect :'user_dash'
+  redirect "user/#{@encounter.defender_id}"
 end
 
 # ##### FOR KATO #######
@@ -79,19 +79,19 @@ end
 
 # ####### END OF KATO #######
 
-# post "/user/login" do
-#   user = User.where(username: params[:username], password: params[:password]).first
-#   if user
-#     session[:user_id] = user.id
-#     redirect '/'
-#   else
-#     erb :index
-#   end
-# end
+post "/user/login" do
+  user = User.where(username: params[:username], password: params[:password]).first
+  if user
+    session[:user_id] = user.id
+    redirect '/'
+  else
+    erb :index
+  end
+end
 
 
-# get "/user/logout" do
-#   #session[:user_id].clear
-#   session[:user_id] = nil
-#   redirect '/'
-# end
+get "/user/logout" do
+  #session[:user_id].clear
+  session[:user_id] = nil
+  redirect '/'
+end
