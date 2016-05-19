@@ -50,7 +50,7 @@ end
 post '/user/:id/encounter' do
   @encounter = Encounter.create(
     attacker_id: nil,
-    defender_id: session[:id],
+    defender_id:  1,#session[:id],
     date: params[:date],
     tier: params[:tier],
     location: params[:location]
