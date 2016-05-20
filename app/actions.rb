@@ -1,6 +1,6 @@
 ##### pseudo code ish #######
-
-enable :sessions
+require_relative 'routes/login_logout'
+require_relative 'routes/schedule'
 
 helpers do
   def current_user
@@ -38,7 +38,7 @@ end
 
 get '/user/:id' do
   @user = User.find params[:id]
-  erb :'user_dash'
+  # erb :'user_dash'
 end
 
 ### FIX IT ###
@@ -46,17 +46,6 @@ end
 #   @user = User.find params[:id]
 #   erb :'########'
 # end
-
-post '/user/:id/encounter' do
-  @encounter = Encounter.create(
-    attacker_id: nil,
-    defender_id:  1,#session[:id],
-    date: params[:date],
-    tier: params[:tier],
-    location: params[:location]
-  )
-  redirect "user/#{@encounter.defender_id}"
-end
 
 # ##### FOR KATO #######
 

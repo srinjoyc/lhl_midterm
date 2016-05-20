@@ -1,0 +1,39 @@
+<div style="height: 40px;"></div>
+
+<div align="center">
+  <h1 style="margin-left: 30%; margin-right: 30%; ">Serve As Cato</h1>
+
+  <div style="height: 40px;"></div>
+
+  <!--  Controller must assign @unmatched as
+      encounters where attacker_id is nil  -->
+<div class="well">
+    <table class="table-hover" style="margin-left: 20%; margin-right: 20%; min-width: 60%">
+      <thead>
+        <tr>
+          <th align="center">Expert Name</th>
+          <th align="center">Area</th>
+          <th align="center">     </th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @unmatched.each do |encounter| %>
+          <% defender = User.find(encounter.defender_id) %>
+          <tr>
+            <td style="padding: 20px;"><%= defender.username  %></td>
+            <td style="padding: 20px;"><%= encounter.location %></td>
+            <td style="padding: 20px;">
+              <!--TODO: Try without "form" tag first. If it doesn't work, uncomment. -->
+              <form method='post' action='/encounter/<%= encounter.id %>'>
+                <input type="hidden" name="_method" value="put">
+                <!-- <input type="hidden" name="encounter" value="<%= encounter.id %>"> -->
+                <input class="btn" type="submit" value="Serve as Cato">
+              </form>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+</div>
+  </div>
+</div>

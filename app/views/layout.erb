@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+<head><title>CatoPro</title>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,12 +17,11 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>User Dashboard</title>
-
     <!-- Inserted stylesheets in different folder -->
      <!-- Bootstrap Core CSS -->
-    <link href="/stylesheets/bootstrap.min.css"  rel="stylesheet">
 
+    <link href="/stylesheets/bootstrap.min.css"  rel="stylesheet">
+    <link href="/stylesheets/bootstrap.css" rel="stylesheet" type="text/css">
     <!-- MetisMenu CSS -->
     <link href="/stylesheets/metisMenu.min.css" rel="stylesheet">
 
@@ -37,17 +36,31 @@
 
     <!-- Custom Fonts -->
     <link href="/stylesheets/font-awesome.min.css" rel="stylesheet" type="text/css">
-    
+
      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
      <script src="/javascript/application.js"></script>
 
-</head>
 
-
-
-  <title></title>
+  <title>Catopro</title>
 </head>
 <body>
+
+  <!-- Top nav/login/logout -->
+  <div class="well" align="right">
+    <% if session[:current_user] %>
+    <strong><%=session[:current_user] %></strong>
+      <form method='post', action='/logout'>
+        <input type="submit" name="logout" value="LOGOUT">
+    <% else %> 
+      <form method='post', action='/login'>
+        <label for='username'>Username:</label>
+        <input type='text' name='username'>
+        <input type='password' name='password'>
+        <input type='submit' name='submit' value='LOG IN' style="padding: 10px;">
+      </form>
+    <% end %>
+  </div>
+
   <%= yield %>
 </body>
 </html>
