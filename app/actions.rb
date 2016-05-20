@@ -9,20 +9,17 @@ helpers do
 end
 
 get '/' do
-  # erb :user_dash                        # Some shit Jeremy wrote
-  @title_parameter = "pretty classy lady" # Later on, relevant to
-                                          # dynamic titles.
-  erb :index
+  erb :'index'
 end
 
 get '/user' do
   @user = User.new
-  erb :'user/index'
+  erb :'user_dash'
 end
 
 get '/user/new' do
   @user = User.new
-  erb :'user/new'
+  erb :'user_dash'
 end
 
 post '/user' do
@@ -50,18 +47,6 @@ end
 #   erb :'########'
 # end
 
-post '/user/:id/encounter' do
-  @encounter = Encounter.create(
-    attacker_id: nil,
-    defender_id: session[:user_id],
-    date: params[:date],
-    tier: params[:tier],
-    location: params[:location]
-
-  )
-  # redirect :'user_dash'
-end
-
 # ##### FOR KATO #######
 
 # post '/user/:id/kato' do
@@ -82,19 +67,19 @@ end
 
 # ####### END OF KATO #######
 
-# post "/user/login" do
-#   user = User.where(username: params[:username], password: params[:password]).first
-#   if user
-#     session[:user_id] = user.id
-#     redirect '/'
-#   else
-#     erb :index
-#   end
-# end
+post "/user/login" do
+  user = User.where(username: params[:username], password: params[:password]).first
+  if user
+    session[:user_id] = user.id
+    redirect '/'
+  else
+    erb :index
+  end
+end
 
 
-# get "/user/logout" do
-#   #session[:user_id].clear
-#   session[:user_id] = nil
-#   redirect '/'
-# end
+get "/user/logout" do
+  #session[:user_id].clear
+  session[:user_id] = nil
+  redirect '/'
+end
