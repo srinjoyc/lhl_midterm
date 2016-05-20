@@ -1,5 +1,5 @@
 ##### pseudo code ish #######
-require_relative 'routes/login_logout'
+require_relative 'routes/user_auth'
 require_relative 'routes/schedule'
 
 helpers do

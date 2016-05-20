@@ -1,3 +1,11 @@
+get '/signup' do
+  erb :signup
+end # /signup
+
+post '/signup/new_user' do
+#User.new(params[:all_the_everythings])
+end # /signup/new_user
+
 post '/login' do
 
   session[:password] = params[:password]
