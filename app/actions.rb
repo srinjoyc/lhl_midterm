@@ -9,17 +9,17 @@ helpers do
 end
 
 get '/' do
-  erb :user_dash
+  erb :'index'
 end
 
 get '/user' do
   @user = User.new
-  erb :'user/index'
+  erb :'user_dash'
 end
 
 get '/user/new' do
   @user = User.new
-  erb :'user/new'
+  erb :'user_dash'
 end
 
 post '/user' do
@@ -54,7 +54,6 @@ post '/user/:id/encounter' do
     date: params[:date],
     tier: params[:tier],
     location: params[:location]
-
   )
   redirect "user/#{@encounter.defender_id}"
 end
