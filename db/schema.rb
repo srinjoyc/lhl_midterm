@@ -14,9 +14,9 @@
 ActiveRecord::Schema.define(version: 20160519195900) do
 
   create_table "encounters", force: :cascade do |t|
-    t.integer  "attacker_id"
-    t.integer  "defender_id"
-    t.string   "date"
+    t.string   "defender_id"
+    t.string   "attacker_id"
+    t.string   "expires"
     t.string   "tier"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
