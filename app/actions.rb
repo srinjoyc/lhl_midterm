@@ -37,8 +37,8 @@ end
 
 
 get '/user/:id' do
-  @user = User.find params[:id]
-  # erb :'user_dash'
+  @user = User.find session[:current_user] #params[:id]
+  erb :'user_dash'
 end
 
 ### FIX IT ###
