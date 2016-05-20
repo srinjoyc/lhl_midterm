@@ -1,0 +1,6 @@
+Encounter.create(defender_id: 1, date: "10", tier: "1", location: "56th St.")
+Encounter.create(defender_id: 3, date: "365", tier: "2", location: "Lighthouse Labs")
+Encounter.create(defender_id: 5, date: "100", tier: "3", location: "Home")
+Encounter.create(defender_id: 7, date: "4", tier: "3", location: "Cambie St.")
+Encounter.create(defender_id: 4, date: "5", tier: "3", location: "Hawaii")
+Encounter.create(defender_id: 8, date: "10", tier: "5", location: "Burnaby")

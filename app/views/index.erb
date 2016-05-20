@@ -1,1 +1,8 @@
-<h1>Home Page</h1>
+<h1>CatoPro</h1>
+
+Users:
+<ul>
+<% User.all.each do |x| %>
+<li>Username: <%= x.username %><ul><li><small>Password: <%= x.password %></small></li></ul></li>
+<% end %>
+</ul>

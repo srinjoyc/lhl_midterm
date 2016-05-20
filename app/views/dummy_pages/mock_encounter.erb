@@ -1,0 +1,15 @@
+<h1>Challenge accepted.</h1>
+<h2>Encounter: <%= @encounter.id %></h2>
+<ul>
+  <li>Target: <%= @defender.username %></li>
+  <li>Area: <%= @encounter.location %></li>
+  <li>Provided Address: [Address]
+
+        <%= #This will at some point contain
+            # @defender.address, when that's a
+            # value that we ask for during signup
+        %>
+  </li>
+</ul>
+
+<a href="/">Go back to home page</a>

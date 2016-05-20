@@ -1,6 +1,6 @@
 ##### pseudo code ish #######
-
-enable :sessions
+require_relative 'routes/login_logout'
+require_relative 'routes/schedule'
 
 helpers do
   def current_user
@@ -9,7 +9,10 @@ helpers do
 end
 
 get '/' do
-  erb :user_dash
+  # erb :user_dash                        # Some shit Jeremy wrote
+  @title_parameter = "pretty classy lady" # Later on, relevant to
+                                          # dynamic titles.
+  erb :index
 end
 
 get '/user' do
@@ -38,7 +41,7 @@ end
 
 get '/user/:id' do
   @user = User.find params[:id]
-  erb :'user_dash'
+  # erb :'user_dash'
 end
 
 ### FIX IT ###
@@ -56,7 +59,7 @@ post '/user/:id/encounter' do
     location: params[:location]
 
   )
-  redirect :'user_dash'
+  # redirect :'user_dash'
 end
 
 # ##### FOR KATO #######
