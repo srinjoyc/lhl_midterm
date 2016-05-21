@@ -41,34 +41,21 @@ get "/user/:id" do
 end
 
 
-### FIX IT ###
-# get '/user/:id/####setting'
-#   @user = User.find params[:id]
-#   erb :'########'
-# end
+get "/edit_profile" do
+  erb :'edit_profile'
+end  
 
-# ##### FOR KATO #######
+post "/edit_profile" do 
+  File.open('public/assets/p' + "#{current_user.id}.jpg", "w") do |f|
+    f.write(params['myfile'][:tempfile].read)
+  end
+  url = "assets/#{params[:filename]}"
+  current_user.img_url = url
+  return "The file was successfully uploaded!"
+end
 
-# post '/user/:id/kato' do
-#   @kato = Kato.create(
-#     user_id: session[:user_id]
-#     ######
-#     ######
-#   )
-#   redirect '/kato/:id'
-# end
-
-
-
-# get '/kato/:id' do
-#   @kato = Kato.where(user_id: session[:user_id])
-#   erb :'########'
-# end
-
-# ####### END OF KATO #######
-
-
-
-
-
+get "/user/review" do
+  erb :'review_cato'
+end
+>>>>>>> master
 
