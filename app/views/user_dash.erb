@@ -23,6 +23,48 @@
                 </div>
             </div>
             <!-- /.row -->
+<!-- PROFILE SECTION ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ --> 
+    <div class="container">            
+        <div class="col-xs-12" >
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title"><%= @current_user.username %></h3>
+            </div>
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="http://babyinfoforyou.com/wp-content/uploads/2014/10/avatar-300x300.png" class="img-circle img-responsive"> </div>
+                <div class="col-xs-10 col-sm-10 hidden-md hidden-lg"> <br>
+                  <dl>
+                    <dt>Username</dt>
+                    <dd>Height</dd>
+                    <dt>Weight</dt>
+                  </dl>
+                </div>
+                <div class=" col-md-4 col-lg-4 "> 
+                  <table class="table table-user-information">
+                    <tbody>
+                      <tr>
+                        <td>Username:</td>
+                        <td><%= @current_user.username %></td>
+                      </tr>
+                      <tr>
+                        <td>Weight</td>
+                        <td><%= @current_user.weight %></td>
+                      </tr>
+                      <tr>
+                        <td>Height</td>
+                        <td><%= @current_user.height %></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <a href="/schedule" class="btn btn-primary">Serve as a cato</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>  <!-- end profile section --> 
 
             <div class="row">
                 <div class="col-lg-3 col-md-6">
@@ -116,62 +158,41 @@
             </div>
             <!-- /.row -->
             <div class="jumbotron" style="background-color: #4C4C4C">
-                <div class="row">
-                    <div class="col-xs-5 col-xs-offset-3" style="text-align: center">
-                        <h2 style="color: #fff">Get a Cato to challenge you today!</h2>
+                  <div class="row">
+                    <div class="col-md-2 col-md-offset-5">
+                        <h2 style="color: #fff">Find a Cato.</h2>
                     </div>
-                </div>
+                  </div>
+              <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <form>
+                      <div class="form-group">
+                        <label style="color: #fff">Location </label>
+                        <input type="location" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputPassword1" style="color: #fff">Date</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                      </div>
+                <div class="form-group">
                 <div class="row">
-                    <form id="eventForm" method="post" class="form-horizontal" action="/user/<%=@user.id%>/encounter">
-                        <div class="form-group">
-                            <label class="col-xs-3 control-label" style="color: #fff">Location</label>
-                            <div class="col-xs-5">
-                                <input type="text" class="form-control" name="location" />
-                            </div>
+                  <div class="col-xs-4">
+                        <label class="radio">
+                          <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" style="color:#fff"> To Death
+                        </label>
+                        <label class="radio">
+                          <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" style="color:#fff"> Schedule
+                        </label>
+                    </div>
+                    </div>
+                      <div class="row">
+                        <div class="col-md-2 col-md-offset-5">
+                            <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
-
-                        <div class="form-group">
-                            <label class="col-xs-3 control-label" style="color: #fff">Date</label>
-                            <div class="col-xs-5 date">
-                                <div class="input-group input-append date" id="datePicker">
-                                    <input type="text" class="form-control" name="date" />
-                                    <span class="input-group-addon add-on"><span class="glyphicon glyphicon-calendar"></span></span>
-                                </div>
-                            </div>
-                        </div>
-
-                        
-
-
-                        <div class="form-group">
-                            <div class="col-xs-5 col-xs-offset-5">
-                            <div style="color: #fff">1 to 3 Rating</div>
-                                
-                                <select id="example-1to10" name="tier">
-                                    <option value=1>1</option>
-                                    <option value=2>2</option>
-                                    <option value=3>3</option>
-                   
-                                </select>
-                            </div>
-                        </div>
-
-
-                        <div class="form-group">
-                            <div class="col-xs-5 col-xs-offset-5">
-                                <button href="#" type="submit" class="btn btn-primary">Find one now</button>
-                            </div>
-                        </div>
+                      </div>
                     </form>
-
-                   
-
-
-              
-            
-      
-
                 </div>
+              </div>
             </div>
                     <div class="panel panel-default">
                         <div class="panel-heading">

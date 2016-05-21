@@ -2,12 +2,8 @@
 require_relative 'routes/user_auth'
 require_relative 'routes/schedule'
 
-helpers do
-  def current_user
-    @current_user = User.find(session[:user_id]) if session[:user_id]
-  end
-end
 
+ 
 get '/' do
   erb :'index'
 end
@@ -19,7 +15,7 @@ end
 
 get '/user/new' do
   @user = User.new
-  erb :'user_dash'
+  erb :'user_new'
 end
 
 post '/user' do
@@ -29,15 +25,18 @@ post '/user' do
     ###
   )
   if @user.save
-    redirect '####'
+    redirect "/user/#{@user.id}"
   else
     erb :'/user/new'
   end
 end
 
 
-get '/user/:id' do
-  @user = User.find session[:current_user] #params[:id]
+get "/user/:id" do
+
+
+  @user = User.find(current_user.id) #params[:id]
+  # binding.pry
   erb :'user_dash'
 end
 
@@ -67,19 +66,4 @@ end
 
 # ####### END OF KATO #######
 
-post "/user/login" do
-  user = User.where(username: params[:username], password: params[:password]).first
-  if user
-    session[:user_id] = user.id
-    redirect '/'
-  else
-    erb :index
-  end
-end
 
-
-get "/user/logout" do
-  #session[:user_id].clear
-  session[:user_id] = nil
-  redirect '/'
-end

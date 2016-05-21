@@ -10,9 +10,13 @@ post '/login' do
 
   session[:password] = params[:password]
   @current_user = User.find_by(username: params[:username])
-
+  if @current_user
   session[:current_user] = @current_user.id if @current_user.password == params[:password]
-  redirect '/user/:id'
+  
+    redirect "/user/#{@current_user.id}" 
+  else 
+    redirect '/user/new'
+  end
   ##TODO: Redirect to dashboard when dashboard has stuff.
 end #post '/login'
 
