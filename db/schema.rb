@@ -20,11 +20,11 @@ ActiveRecord::Schema.define(version: 20160521204643) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.string   "location"
-    t.boolean  "active"
     t.string   "a_review"
     t.string   "d_review"
     t.integer  "a_damage"
     t.integer  "d_damage"
+    t.boolean  "active"
   end
 
   create_table "users", force: :cascade do |t|

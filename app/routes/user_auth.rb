@@ -12,13 +12,22 @@ post '/login' do
   @current_user = User.find_by(username: params[:username])
   if @current_user
   session[:current_user] = @current_user.id if @current_user.password == params[:password]
-  
-    redirect "/user/#{@current_user.id}" 
-  else 
+
+    redirect "/user/#{@current_user.id}"
+  else
     redirect '/user/new'
   end
   ##TODO: Redirect to dashboard when dashboard has stuff.
 end #post '/login'
+
+get '/user' do
+  if session[:current_user]
+    redirect "/user/#{session[:current_user]}"
+  else
+    redirect "/signup"
+  end #if/else
+end # get '/user'
+
 
 
 

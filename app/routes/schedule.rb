@@ -13,7 +13,7 @@ put '/encounter/accept' do
   @attacker = User.find(params[:attacker_id])
   @encounter.attacker = @attacker
   @encounter.save
-  redirect "/user/#{@attacker.id}"
+  redirect "/encounter/#{params[:encounter_id]}"
 end
 
 
