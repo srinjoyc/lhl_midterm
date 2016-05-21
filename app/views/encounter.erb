@@ -2,7 +2,9 @@
     @defender = User.find(@encounter.defender)
     @attacker = current_user
 %>
-<% if @encounter.attacker_id %>
+<% if @encounter.attacker_id == current_user.id %>
+
+<div class="container-fluid well">
 <h1>Your Fate Is Sealed</h1>
 
 <p>
@@ -25,6 +27,7 @@
   <input class="btn btn-primary" type="submit" value="Accept">
 </form>
 <% end %>
+</div>
 <br>
 <div class="container" style="margin-left: 10%; margin-right: 30%; margin-top: 30px;">
   <div class="col-md-4 panel" style="margin-right: 50px;">

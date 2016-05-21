@@ -23,7 +23,6 @@ ActiveRecord::Schema.define(version: 20160521204643) do
     t.boolean  "active"
     t.string   "a_review"
     t.string   "d_review"
-    t.boolean  "active"
     t.integer  "a_damage"
     t.integer  "d_damage"
   end
