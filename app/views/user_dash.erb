@@ -35,29 +35,48 @@
                 <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="<%="/assets/p#{@current_user.id}.jpg"%>" class="img-circle img-responsive"> </div>
                 <div class="col-xs-10 col-sm-10 hidden-md hidden-lg"> <br>
                   <dl>
-                    <dt>Username</dt>
+                    <dt>Nickname</dt>
                     <dd>Height</dd>
                     <dt>Weight</dt>
+                    <dt>Hometown</dt>
+                    <dt>Age</dt>
+                    <dt>Reach</dt>  
                   </dl>
                 </div>
                 <div class=" col-md-4 col-lg-4 "> 
                   <table class="table table-user-information">
                     <tbody>
                       <tr>
-                        <td>Username:</td>
-                        <td><%= @current_user.username %></td>
+                        <td>Nickname:</td>
+                        <td><%= @current_user.nickname %> </td>
                       </tr>
                       <tr>
-                        <td>Weight</td>
+                        <td>Weight:</td>
                         <td><%= @current_user.weight %></td>
                       </tr>
                       <tr>
-                        <td>Height</td>
+                        <td>Height:</td>
                         <td><%= @current_user.height %></td>
+                      </tr>
+                      <tr>
+                        <td>Hometown:</td>
+                        <td><%= @current_user.hometown %></td>
+                      </tr>
+                      <tr>
+                        <td>Age:</td>
+                        <td><%= @current_user.age %></td>
+                      </tr>
+                      <tr>
+                        <td>Reach:</td>
+                        <td><%= @current_user.reach %></td>
                       </tr>
                     </tbody>
                   </table>
                   <a href="/edit_profile" class="btn btn-primary">Edit</a>
+                </div>
+                <div class=" col-md-4 col-lg-4 " style="text-align: center;"> 
+                    <h2> Quick Bio</h2>
+                   <p> <%= @current_user.bio %> </p>
                 </div>
               </div>
             </div>
