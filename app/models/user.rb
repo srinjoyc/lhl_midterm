@@ -1,3 +1,4 @@
+require 'pry'
 class User < ActiveRecord::Base
 
     has_many :encounters_as_attacker, foreign_key: "attacker_id", class_name: "Encounter"
@@ -6,15 +7,11 @@ class User < ActiveRecord::Base
     validates :password, presence: true 
   
     def past_matches
-      # self.encounters_as_defender.where(attacker_id: self.id)
       self.encounters_as_defender.where.not(attacker_id: self.id).order('id DESC').limit(5)
-      # binding.pry
-      # puts ""
-      # puts test
-      # test
     end
 
 
-
-    
+    def total_matches 
+        self.encounters_as_defender.count + self.encounters_as_attacker.count  
+    end 
 end 

@@ -1,4 +1,4 @@
-User.create(username: "Bruce_Lee", password: "brucelee", weight: 64, height: 175, img_url: '/public/assets/p1.jpg')
+User.create(username: "Bruce_Lee", nickname: "Brucy", password: "brucelee", hometown: "Hong Kong", age: 15, reach: 64, weight: 64, height: 175, bio: "I'm a lean mean fighting machine and need people to keep me that way. Fight me now!!!", img_url: '/public/assets/p1.jpg')
 User.create(username: "Mike_Tyson", password: "miketyson", weight: 116, height: 176, img_url: '/public/assets/p2.jpg')
 User.create(username: "Tony_Jaa", password: "tonyjaa", weight: 74, height: 174, img_url: '/public/assets/p3.jpg')
 User.create(username: "Pink_Panther", password: "pinkpanther", weight: 64, height: 167, img_url: '/public/assets/p4.jpg')
