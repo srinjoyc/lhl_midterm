@@ -32,7 +32,7 @@
             </div>
             <div class="panel-body">
               <div class="row">
-                <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="<%="/assets/p#{@current_user.id}.jpg"%>" class="img-circle img-responsive"> </div>
+                <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="http://babyinfoforyou.com/wp-content/uploads/2014/10/avatar-300x300.png" class="img-circle img-responsive"> </div>
                 <div class="col-xs-10 col-sm-10 hidden-md hidden-lg"> <br>
                   <dl>
                     <dt>Username</dt>
@@ -57,7 +57,7 @@
                       </tr>
                     </tbody>
                   </table>
-                  <a href="/edit_profile" class="btn btn-primary">Edit</a>
+                  <a href="/schedule" class="btn btn-primary">Serve as a cato</a>
                 </div>
               </div>
             </div>
@@ -75,10 +75,10 @@
                                     <i class="fa fa-group fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge"><%= @current_user.total_matches %></div>
+                                    <div class="huge">26 Fights</div>
                                     <div>Total encounters</div>
                                 </div>
-                            </div>  
+                            </div>
                         </div>
                         <a href="#">
                             <div class="panel-footer">
@@ -218,31 +218,59 @@
                                         <div class="timeline-body">
                                             <p><%= match.id %></p>
                                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm" style="margin-top: 10px">Leave a Review of the Fight</button>
+
+                                            <!-- <form method="put" action="/review/<%=match.id%>"> -->
+                                            
+                                            <!-- </form> -->
                                             <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
                                               <div class="modal-dialog modal-sm">
                                                 <div class="modal-content">
                                                   <div class="container-fluid">
                                                       <div class="row">
-                                                       <div class="col-md-6 col-sm-6 col-xs-12">
-                                                        <form method="post">
+                                                       <div class="col-md-10 col-sm-10 col-xs-12">
+                                                        <form method='post' action="/review">
+                                                        <input type="hidden" name="match_id" value="<%= match.id %>">
                                                          <div class="form-group ">
-                                                          <label class="control-label requiredField" for="number">
-                                                           How was your encounter?
+                                                          <label class="control-label requiredField" for="damage">
+                                                           Total damage taken
                                                            <span class="asteriskField">
                                                             *
                                                            </span>
                                                           </label>
-                                                          <input class="form-control" id="number" name="number" placeholder="1-10" type="text"/>
+                                                          <input class="form-control" id="number" name="damage" placeholder="1-10" type="text"/>
                                                          </div>
                                                          <div class="form-group ">
                                                           <label class="control-label " for="message">
-                                                           Comment
+                                                           Please leave your review!
                                                           </label>
-                                                          <textarea class="form-control" cols="40" id="message" name="message" rows="10"></textarea>
+                                                          <textarea class="form-control" cols="40" id="review" name="review" rows="10"></textarea>
                                                          </div>
+                                                         <div class="rating rating star">
+                                    <div class="rating-wrapper">
+                                    </div>
+                                    <lable class="control-label requiredField" for="rate"> Rate the opponent! </lable>
+                                    </div>
+                                        <input type="radio" name="rating" id="star-rating-5-1" value="5">
+                                        <label >5</label>
+                                        
+                                        <input type="radio" name="rating" id="star-rating-4-1" value="4">
+                                      <!--   <label class="fa fa-star" for="star-rating-4-1"></label> -->
+                                        <label >4</label>
+                                        
+                                        <input type="radio" name="rating" id="star-rating-3-1" value="3">
+                                        <label >3</label>
+                                        
+                                        <input type="radio" name="rating" id="star-rating-2-1" value="2">
+                                        <label >2</label>
+                                        
+                                        <input type="radio" name="rating" id="star-rating-1-1" value="1">
+                                        <label >1</label>
+                                    </div>
+                                </div>
+                            </div>
                                                          <div class="form-group">
                                                           <div>
-                                                           <button class="btn btn-primary " name="submit" type="submit">
+                                                           <button class="btn btn-primary" name="submit" type="submit">
                                                             Submit
                                                            </button>
                                                           </div>
@@ -265,7 +293,11 @@
                                             <h4 class="timeline-title">Lorem ipsum dolor</h4>
                                         </div>
                                         <div class="timeline-body">
+                                            
                                          <p><%= match.id %></p>
+                                            
+
+                                          
                                         </div>
                                     </div>
                                 </li>
@@ -352,6 +384,70 @@
                     <!-- /.panel -->
                 </div>
                 <!-- /.col-lg-8 -->
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <i class="fa fa-bell fa-fw"></i> Notifications Panel
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="list-group">
+                                <a href="#" class="list-group-item">
+                                    <i class="fa fa-comment fa-fw"></i> New Comment
+                                    <span class="pull-right text-muted small"><em>4 minutes ago</em>
+                                    </span>
+                                </a>
+                                <a href="#" class="list-group-item">
+                                    <i class="fa fa-twitter fa-fw"></i> 3 New Followers
+                                    <span class="pull-right text-muted small"><em>12 minutes ago</em>
+                                    </span>
+                                </a>
+                                <a href="#" class="list-group-item">
+                                    <i class="fa fa-envelope fa-fw"></i> Message Sent
+                                    <span class="pull-right text-muted small"><em>27 minutes ago</em>
+                                    </span>
+                                </a>
+                                <a href="#" class="list-group-item">
+                                    <i class="fa fa-tasks fa-fw"></i> New Task
+                                    <span class="pull-right text-muted small"><em>43 minutes ago</em>
+                                    </span>
+                                </a>
+                                <a href="#" class="list-group-item">
+                                    <i class="fa fa-upload fa-fw"></i> Server Rebooted
+                                    <span class="pull-right text-muted small"><em>11:32 AM</em>
+                                    </span>
+                                </a>
+                                <a href="#" class="list-group-item">
+                                    <i class="fa fa-bolt fa-fw"></i> Server Crashed!
+                                    <span class="pull-right text-muted small"><em>11:13 AM</em>
+                                    </span>
+                                </a>
+                                <a href="#" class="list-group-item">
+                                    <i class="fa fa-warning fa-fw"></i> Server Not Responding
+                                    <span class="pull-right text-muted small"><em>10:57 AM</em>
+                                    </span>
+                                </a>
+                                <a href="#" class="list-group-item">
+                                    <i class="fa fa-shopping-cart fa-fw"></i> New Order Placed
+                                    <span class="pull-right text-muted small"><em>9:49 AM</em>
+                                    </span>
+                                </a>
+                                <a href="#" class="list-group-item">
+                                    <i class="fa fa-money fa-fw"></i> Payment Received
+                                    <span class="pull-right text-muted small"><em>Yesterday</em>
+                                    </span>
+                                </a>
+                            </div>
+                            <!-- /.list-group -->
+                            <a href="#" class="btn btn-default btn-block">View All Alerts</a>
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                    <!-- /.panel -->
+
+
+    </div>`
     <!-- /#wrapper -->
 
     <!-- jQuery -->
