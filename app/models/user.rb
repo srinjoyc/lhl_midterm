@@ -1,3 +1,4 @@
+require 'pry'
 class User < ActiveRecord::Base
 
     has_many :encounters_as_attacker, foreign_key: "attacker_id", class_name: "Encounter"
@@ -5,5 +6,7 @@ class User < ActiveRecord::Base
     validates :username, presence: true 
     validates :password, presence: true 
   
-
+  def past_matches
+    self.encounters_as_defender
+  end 
 end 
