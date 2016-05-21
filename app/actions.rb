@@ -1,10 +1,10 @@
 ##### pseudo code ish #######
-require_relative 'routes/login_logout'
+require_relative 'routes/user_auth'
 require_relative 'routes/schedule'
 require_relative 'routes/review'
 
 
- 
+
 get '/' do
   erb :'index'
 end
@@ -37,9 +37,9 @@ get "/user/:id" do
 
 
   @user = User.find(current_user.id) #params[:id]
-  # binding.pry
   erb :'user_dash'
 end
+
 
 ### FIX IT ###
 # get '/user/:id/####setting'
@@ -66,6 +66,7 @@ end
 # end
 
 # ####### END OF KATO #######
+
 
 
 
