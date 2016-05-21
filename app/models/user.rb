@@ -13,4 +13,8 @@ class User < ActiveRecord::Base
       # puts test
       # test
     end
+
+
+
+    
 end 
