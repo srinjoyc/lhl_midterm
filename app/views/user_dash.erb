@@ -369,6 +369,8 @@
                         <!-- /.panel-body -->
                     </div>
                     <!-- /.panel -->
+                    <% user= User.find(2) %>
+                    <%= erb :profile_card, :locals => {:user => user} %>
                 </div>
                 <!-- /.col-lg-8 -->
     <!-- /#wrapper -->
