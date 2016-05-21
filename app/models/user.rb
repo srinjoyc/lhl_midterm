@@ -5,5 +5,16 @@ class User < ActiveRecord::Base
     validates :username, presence: true 
     validates :password, presence: true 
   
+    def past_matches
+      # self.encounters_as_defender.where(attacker_id: self.id)
+      self.encounters_as_defender.where.not(attacker_id: self.id).order('id DESC').limit(5)
+      # binding.pry
+      # puts ""
+      # puts test
+      # test
+    end
 
+
+
+    
 end 

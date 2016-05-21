@@ -38,3 +38,7 @@ get "/user/:id" do
   @user = User.find(current_user.id) #params[:id]
   erb :'user_dash'
 end
+
+get "/user/review" do
+  erb :'review_cato'
+end
