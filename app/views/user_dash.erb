@@ -204,6 +204,8 @@
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                             <ul class="timeline">
+                                <% current_user.past_matches.each_with_index do |match,index| %>
+                                <% if index%2==1 %>
                                 <li>
                                     <div class="timeline-badge"><i class="fa fa-check"></i>
                                     </div>
@@ -214,7 +216,7 @@
                                             </p>
                                         </div>
                                         <div class="timeline-body">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero laboriosam dolor perspiciatis omnis exercitationem. Beatae, officia pariatur? Est cum veniam excepturi. Maiores praesentium, porro voluptas suscipit facere rem dicta, debitis.</p>
+                                            <p><%= match.id %></p>
                                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm" style="margin-top: 10px">Leave a Review of the Fight</button>
                                             <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
                                               <div class="modal-dialog modal-sm">
@@ -254,6 +256,7 @@
                                         </div>
                                     </div>
                                 </li>
+                                <% else %>
                                 <li class="timeline-inverted">
                                     <div class="timeline-badge warning"><i class="fa fa-credit-card"></i>
                                     </div>
@@ -262,12 +265,17 @@
                                             <h4 class="timeline-title">Lorem ipsum dolor</h4>
                                         </div>
                                         <div class="timeline-body">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem dolorem quibusdam, tenetur commodi provident cumque magni voluptatem libero, quis rerum. Fugiat esse debitis optio, tempore. Animi officiis alias, officia repellendus.</p>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium maiores odit qui est tempora eos, nostrum provident explicabo dignissimos debitis vel! Adipisci eius voluptates, ad aut recusandae minus eaque facere.</p>
+                                            
+                                         <p><%= match.id %></p>
+                                            
+
+                                          
                                         </div>
                                     </div>
                                 </li>
-                                <li>
+                                <% end %>
+                            <% end %>
+                                <!-- <li>
                                     <div class="timeline-badge danger"><i class="fa fa-bomb"></i>
                                     </div>
                                     <div class="timeline-panel">
@@ -279,6 +287,7 @@
                                         </div>
                                     </div>
                                 </li>
+                            
                                 <li class="timeline-inverted">
                                     <div class="timeline-panel">
                                         <div class="timeline-heading">
@@ -339,7 +348,7 @@
                                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt obcaecati, quaerat tempore officia voluptas debitis consectetur culpa amet, accusamus dolorum fugiat, animi dicta aperiam, enim incidunt quisquam maxime neque eaque.</p>
                                         </div>
                                     </div>
-                                </li>
+                                </li> -->
                             </ul>
                         </div>
                         <!-- /.panel-body -->
