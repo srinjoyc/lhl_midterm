@@ -9,10 +9,19 @@ get '/schedule' do
 end #get '/schedule'
 
 put '/encounter/accept' do
-  @encounter = Encounter.find(params[:id])
-  @encounter.attacker = current_user
+  @encounter = Encounter.find(params[:encounter_id])
+  @attacker = User.find(params[:attacker_id])
+  @encounter.attacker = @attacker
   @encounter.save
-  redirect "/encounter/#{@encounter.id}"
+  redirect "/user/#{@attacker.id}"
+end
+
+
+put '/encounter/:id' do
+  # @encounter = Encounter.find(params[:id])
+  # @encounter.attacker = current_user
+  # @encounter.save
+  redirect "/encounter/#{params[:id]}"
 end
 
 get '/encounter/:id' do
