@@ -40,6 +40,19 @@ get "/user/:id" do
   erb :'user_dash'
 end
 
+get "/edit_profile" do
+  erb :'edit_profile'
+end  
+
+post "/edit_profile" do 
+  File.open('public/assets/' + params['myfile'][:filename], "w") do |f|
+    f.write(params['myfile'][:tempfile].read)
+  end
+  @current_user.img_URL = 'public/assets/' + params['myfile'][:filename]
+  return "The file was successfully uploaded!"
+end
+
+
 ### FIX IT ###
 # get '/user/:id/####setting'
 #   @user = User.find params[:id]

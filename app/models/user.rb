@@ -14,4 +14,8 @@ class User < ActiveRecord::Base
       # puts test
       # test
     end
+
+    def total_matches 
+        self.encounters_as_defender.count + self.encounters_as_attacker.count  
+    end 
 end 

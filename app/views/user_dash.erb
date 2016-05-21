@@ -32,7 +32,7 @@
             </div>
             <div class="panel-body">
               <div class="row">
-                <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="http://babyinfoforyou.com/wp-content/uploads/2014/10/avatar-300x300.png" class="img-circle img-responsive"> </div>
+                <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="<%= @current_user.img_URL unless @current_user.img_URL.nil? %>" class="img-circle img-responsive"> </div>
                 <div class="col-xs-10 col-sm-10 hidden-md hidden-lg"> <br>
                   <dl>
                     <dt>Username</dt>
@@ -57,7 +57,7 @@
                       </tr>
                     </tbody>
                   </table>
-                  <a href="/schedule" class="btn btn-primary">Serve as a cato</a>
+                  <a href="/edit_profile" class="btn btn-primary">Edit</a>
                 </div>
               </div>
             </div>
@@ -75,10 +75,10 @@
                                     <i class="fa fa-group fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">26 Fights</div>
+                                    <div class="huge"><%= @current_user.total_matches %></div>
                                     <div>Total encounters</div>
                                 </div>
-                            </div>
+                            </div>  
                         </div>
                         <a href="#">
                             <div class="panel-footer">
