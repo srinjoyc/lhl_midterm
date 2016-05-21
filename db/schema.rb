@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20160521224955) do
     t.string   "d_review"
     t.integer  "a_damage"
     t.integer  "d_damage"
+    t.boolean  "active"
   end
 
   create_table "users", force: :cascade do |t|
