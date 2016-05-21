@@ -1,6 +1,7 @@
 ##### pseudo code ish #######
 require_relative 'routes/login_logout'
 require_relative 'routes/schedule'
+require_relative 'routes/review'
 
 
  
@@ -66,7 +67,7 @@ end
 
 # ####### END OF KATO #######
 
-get "/user/review" do 
-  erb :'review_cato'
-end
+
+
+
 
