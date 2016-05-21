@@ -38,7 +38,7 @@
     <link href="/stylesheets/font-awesome.min.css" rel="stylesheet" type="text/css">
 
      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-     <script src="/javascript/application.js"></script>
+     <!-- <script src="/javascript/application.js"></script> -->
 
 
   <title>Catopro</title>
@@ -51,7 +51,8 @@
     <strong><%=session[:current_user] %></strong>
       <form method='post', action='/logout'>
         <input type="submit" name="logout" value="LOGOUT">
-    <% else %> 
+      </form>
+    <% else %>
       <form method='post', action='/login'>
         <label for='username'>Username:</label>
         <input type='text' name='username' placeholder="Username">

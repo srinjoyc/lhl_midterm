@@ -7,13 +7,9 @@ class User < ActiveRecord::Base
     validates :password, presence: true 
   
     def past_matches
-      # self.encounters_as_defender.where(attacker_id: self.id)
       self.encounters_as_defender.where.not(attacker_id: self.id).order('id DESC').limit(5)
-      # binding.pry
-      # puts ""
-      # puts test
-      # test
     end
+
 
     def total_matches 
         self.encounters_as_defender.count + self.encounters_as_attacker.count  

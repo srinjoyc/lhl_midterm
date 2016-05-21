@@ -1,9 +1,9 @@
 ##### pseudo code ish #######
-require_relative 'routes/login_logout'
+require_relative 'routes/user_auth'
 require_relative 'routes/schedule'
 
 
- 
+
 get '/' do
   erb :'index'
 end
@@ -36,7 +36,6 @@ get "/user/:id" do
 
 
   @user = User.find(current_user.id) #params[:id]
-  # binding.pry
   erb :'user_dash'
 end
 
@@ -52,32 +51,7 @@ post "/edit_profile" do
   return "The file was successfully uploaded!"
 end
 
-
-### FIX IT ###
-# get '/user/:id/####setting'
-#   @user = User.find params[:id]
-#   erb :'########'
-# end
-
-# ##### FOR KATO #######
-
-# post '/user/:id/kato' do
-#   @kato = Kato.create(
-#     user_id: session[:user_id]
-#     ######
-#     ######
-#   )
-#   redirect '/kato/:id'
-# end
-
-
-
-# get '/kato/:id' do
-#   @kato = Kato.where(user_id: session[:user_id])
-#   erb :'########'
-# end
-
-# ####### END OF KATO #######
-
-
+get "/user/review" do
+  erb :'review_cato'
+end
 
