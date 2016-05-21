@@ -32,7 +32,7 @@
             </div>
             <div class="panel-body">
               <div class="row">
-                <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="<%= @current_user.img_URL unless @current_user.img_URL.nil? %>" class="img-circle img-responsive"> </div>
+                <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="<%="/assets/p#{@current_user.id}.jpg"%>" class="img-circle img-responsive"> </div>
                 <div class="col-xs-10 col-sm-10 hidden-md hidden-lg"> <br>
                   <dl>
                     <dt>Username</dt>

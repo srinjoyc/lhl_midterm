@@ -44,10 +44,11 @@ get "/edit_profile" do
 end  
 
 post "/edit_profile" do 
-  File.open('public/assets/' + params['myfile'][:filename], "w") do |f|
+  File.open('public/assets/p' + "#{current_user.id}.jpg", "w") do |f|
     f.write(params['myfile'][:tempfile].read)
   end
-  @current_user.img_URL = 'public/assets/' + params['myfile'][:filename]
+  url = "assets/#{params[:filename]}"
+  current_user.img_url = url
   return "The file was successfully uploaded!"
 end
 

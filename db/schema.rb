@@ -20,7 +20,6 @@ ActiveRecord::Schema.define(version: 20160521204643) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.string   "location"
-    t.boolean  "active"
     t.string   "a_review"
     t.string   "d_review"
     t.boolean  "active"
