@@ -31,7 +31,6 @@ end
 
 
 get "/user/:id" do
-
   @alert_params = alert_switch
   @user = User.find(current_user.id) #params[:id]
   erb :'user_dash'

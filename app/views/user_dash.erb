@@ -10,11 +10,11 @@
         <div class="col-xs-12" >
           <div class="panel panel-info">
             <div class="panel-heading">
-              <h3 class="panel-title"><%= @current_user.username %></h3>
+              <h3 class="panel-title"><%= @user.username %></h3>
             </div>
             <div class="panel-body">
               <div class="row">
-                <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="<%="/assets/p#{@current_user.id}.jpg"%>" class="img-circle img-responsive"> </div>
+                <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="<%="/assets/p#{@user.id}.jpg"%>" class="img-circle img-responsive"> </div>
                 <div class="col-xs-10 col-sm-10 hidden-md hidden-lg"> <br>
                   <dl>
                     <dt>Nickname</dt>
@@ -30,27 +30,27 @@
                     <tbody>
                       <tr>
                         <td>Nickname:</td>
-                        <td><%= @current_user.nickname %> </td>
+                        <td><%= @user.nickname %> </td>
                       </tr>
                       <tr>
                         <td>Weight:</td>
-                        <td><%= @current_user.weight %></td>
+                        <td><%= @user.weight %></td>
                       </tr>
                       <tr>
                         <td>Height:</td>
-                        <td><%= @current_user.height %></td>
+                        <td><%= @user.height %></td>
                       </tr>
                       <tr>
                         <td>Hometown:</td>
-                        <td><%= @current_user.hometown %></td>
+                        <td><%= @user.hometown %></td>
                       </tr>
                       <tr>
                         <td>Age:</td>
-                        <td><%= @current_user.age %></td>
+                        <td><%= @user.age %></td>
                       </tr>
                       <tr>
                         <td>Reach:</td>
-                        <td><%= @current_user.reach %></td>
+                        <td><%= @user.reach %></td>
                       </tr>
                     </tbody>
                   </table>
@@ -58,7 +58,7 @@
                 </div>
                 <div class=" col-md-4 col-lg-4 " style="text-align: center;">
                     <h2>Philosophy</h2>
-                   <p> <%= @current_user.bio %> </p>
+                   <p> <%= @user.bio %> </p>
                 </div>
               </div>
             </div>
@@ -76,7 +76,7 @@
                                     <i class="fa fa-group fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge"><%= @current_user.total_matches %></div>
+                                    <div class="huge"><%= @user.total_matches %></div>
                                     <div>Total encounters</div>
                                 </div>
                             </div>
@@ -115,7 +115,7 @@
                 <div class="col-lg-3 col-md-6">
                     <div class="panel panel-yellow">
                         <div class="panel-heading">
-                            <div class="row">
+                            <div class="row">Encounter
                                 <div class="col-xs-3">
                                     <i class="fa fa-dollar fa-5x"></i>
                                 </div>
@@ -170,19 +170,46 @@
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                             <ul class="timeline">
-                                <% current_user.past_matches.each_with_index do |match,index| %>
+                                <% @user.past_matches.each_with_index do |match,index| %>
+
                                 <% if index%2==1 %>
                                 <li>
                                     <div class="timeline-badge"><i class="fa fa-check"></i>
                                     </div>
                                     <div class="timeline-panel">
                                         <div class="timeline-heading">
-                                            <h4 class="timeline-title">Lorem ipsum dolor</h4>
-                                            <p><small class="text-muted"><i class="fa fa-clock-o"></i> 11 hours ago via Twitter</small>
-                                            </p>
+                                            <h4 class="timeline-title">Your <%= match.id %>
+                                             <% if match.id == 1 %>
+                                                    st
+                                                <% elsif match.id == 2 %>
+                                                    nd
+                                                <% elsif match.id == 3 %>
+                                                    rd
+                                                <% else %>
+                                                    th
+                                                <% end %> 
+
+                                            match!
+
+                                            </h4>
+                                           <!--  <p><small class="text-muted"><i class="fa fa-clock-o"></i> 11 hours ago via Twitter</small>
+                                            </p> -->
                                         </div>
+
                                         <div class="timeline-body">
-                                            <p><%= match.id %></p>
+                                            
+                                            <!-- <p></p> -->
+                                             <!--  if (@user.id == match.attacker_id && match.a_review) || (@user.id == match.defender_id && match.d_review)  -->
+                                              <% if match.a_ratings || match.d_ratings %>
+                                               <% if match.d_review %>
+                                               
+                                           <p><%= match.d_review %> - by <%= User.find(match.defender_id).nickname %></p>
+                                           <% end %>
+                                           <% if match.a_review %>
+                                           <p><%= match.a_review %> - by <%= User.find(match.attacker_id).nickname %></p>
+                                           <% end %>
+                                           <% else %>
+                                            
                                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm" style="margin-top: 10px">Leave a Review of the Fight</button>
                                             <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
                                               <div class="modal-dialog modal-sm">
@@ -190,10 +217,10 @@
                                                   <div class="container-fluid">
                                                       <div class="row">
                                                        <div class="col-md-10 col-sm-10 col-xs-12">
-                                                        <form method="post" action="/review">
+                                                        <form method='post' action="/review">
                                                         <input type="hidden" name="match_id" value="<%= match.id %>">
                                                          <div class="form-group ">
-                                                          <label class="control-label requiredField" for="number">
+                                                          <label class="control-label requiredField" for="damage">
                                                            Total Damage Taken
                                                            <span class="asteriskField">
                                                             *
@@ -205,32 +232,32 @@
                                                           <label class="control-label " for="message">
                                                            Leave your review!
                                                           </label>
-                                                          <textarea class="form-control" cols="40" id="reivew" name="review" rows="10"></textarea>
-                                                         </div>
-                                                         <!--   -->
-                                                                                        <div class="col-md-4 form-group">
-                                <label class="control-label">Rate Your Opponent!  </label>
+                                                          <textarea class="form-control" cols="40" id="review" name="review" rows="10"></textarea>
+                                                        </div>
 
-                                <div class="rating rating star">
-                                    <div class="rating-wrapper">
-                                        <input type="radio" name="ratings" id="ratings" value="5">
-                                        <label >5</label>
-
-                                        <input type="radio" name="ratings" id="ratings" value="4">
-                                      <!--   <label class="fa fa-star" for="star-rating-4-1"></label> -->
-                                        <label >4</label>
-
-                                        <input type="radio" name="ratings" id="ratings" value="3">
-                                        <label >3</label>
-
-                                        <input type="radio" name="ratings" id="ratings" value="2">
-                                        <label >2</label>
-
-                                        <input type="radio" name="ratings" id="ratings" value="1">
-                                        <label >1</label>
-                                    </div>
-                                </div>
-                            </div>
+                                                        <div class="col-md-10 form-group">
+                                                            <label class="control-label">Rate Your Opponent!  </label>
+                                    
+                                                                <div class="rating rating star">
+                                                                    <div class="rating-wrapper">
+                                                                    <input type="radio" name="rating" id="rating" value="5">
+                                                                    <label >5</label>
+                                        
+                                                                    <input type="radio" name="rating" id="rating" value="4">
+                                                                  <!--   <label class="fa fa-star" for="star-rating-4-1"></label> -->
+                                                                    <label >4</label>
+                                                                    
+                                                                    <input type="radio" name="rating" id="rating" value="3">
+                                                                    <label >3</label>
+                                                                    
+                                                                    <input type="radio" name="rating" id="rating" value="2">
+                                                                    <label >2</label>
+                                                                    
+                                                                    <input type="radio" name="rating" id="rating" value="1">
+                                                                    <label >1</label>
+                                                                    </div>
+                                                                </div>
+                                                        </div>
 
 
                                                          <!-- -->
@@ -248,6 +275,7 @@
                                               </div>
                                             </div>
                                         </div>
+                                        <% end %>
                                     </div>
                                 </li>
                                 <% else %>
@@ -256,10 +284,98 @@
                                     </div>
                                     <div class="timeline-panel">
                                         <div class="timeline-heading">
-                                            <h4 class="timeline-title">Lorem ipsum dolor</h4>
+                                            <h4 class="timeline-title">Your <%= match.id %>
+                                                <% if match.id == 1 %>
+                                                    st
+                                                <% elsif match.id == 2 %>
+                                                    nd
+                                                <% elsif match.id == 3 %>
+                                                    rd
+                                                <% else %>
+                                                    th
+                                                <% end %> 
+                                            match!
+
+                                            </h4>
                                         </div>
                                         <div class="timeline-body">
-                                         <p><%= match.id %></p>
+                                        <!--  <p>Your <%= match.id %>th match!</p> -->
+                                          <% if match.a_ratings || match.d_ratings %>
+                                           <!-- if (@user.id == match.attacker_id && match.a_review) || (@user.id == match.defender_id && match.d_review)  -->
+                                            <% if match.d_review %>
+                                           
+                                           <p><%= match.d_review %> - by <%= User.find(match.defender_id).nickname %></p>
+                                            <% end %>
+                                            <% if match.a_review %>
+                                           <p><%= match.a_review %> - by <%= User.find(match.attacker_id).nickname %></p>
+                                           <% end %>
+                                            <% else %>
+                                          <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm" style="margin-top: 10px">Leave a Review of the Fight</button>
+                                            <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+                                              <div class="modal-dialog modal-sm">
+                                                <div class="modal-content">
+                                                  <div class="container-fluid">
+                                                      <div class="row">
+                                                       <div class="col-md-10 col-sm-10 col-xs-12">
+                                                        <form method='post' action="/review">
+                                                        <input type="hidden" name="match_id" value="<%= match.id %>">
+                                                         <div class="form-group ">
+                                                          <label class="control-label requiredField" for="damage">
+                                                           Total Damage Taken
+                                                           <span class="asteriskField">
+                                                            *
+                                                           </span>
+                                                          </label>
+                                                          <input class="form-control" id="damage" name="damage" placeholder="1-10" type="text"/>
+                                                         </div>
+                                                         <div class="form-group ">
+                                                          <label class="control-label " for="message">
+                                                           Leave your review!
+                                                          </label>
+                                                          <textarea class="form-control" cols="40" id="review" name="review" rows="10"></textarea>
+                                                        </div>
+                                                         <!--   -->
+                                                        <div class="col-md-10 form-group">
+                                                            <label class="control-label">Rate Your Opponent!  </label>
+                                    
+                                                                <div class="rating rating star">
+                                                                    <div class="rating-wrapper">
+                                                                    <input type="radio" name="rating" id="rating" value="5">
+                                                                    <label >5</label>
+                                        
+                                                                    <input type="radio" name="rating" id="rating" value="4">
+                                                                  <!--   <label class="fa fa-star" for="star-rating-4-1"></label> -->
+                                                                    <label >4</label>
+                                                                    
+                                                                    <input type="radio" name="rating" id="rating" value="3">
+                                                                    <label >3</label>
+                                                                    
+                                                                    <input type="radio" name="rating" id="rating" value="2">
+                                                                    <label >2</label>
+                                                                    
+                                                                    <input type="radio" name="rating" id="rating" value="1">
+                                                                    <label >1</label>
+                                                                    </div>
+                                                                </div>
+                                                        </div>
+
+
+                                                         <!-- -->
+                                                         <div class="form-group">
+                                                          <div>
+                                                           <button class="btn btn-primary " name="submit" type="submit">
+                                                            Submit
+                                                           </button>
+                                                          </div>
+                                                         </div>
+                                                        </form>
+                                                       </div>
+                                                      </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                        </div>
+                                        <% end %>
                                         </div>
                                     </div>
                                 </li>
