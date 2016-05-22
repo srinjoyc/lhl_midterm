@@ -59,3 +59,9 @@ get "/user/review" do
 end
 
 
+
+get "/fighters" do
+  erb :'fighters'
+end
+
+

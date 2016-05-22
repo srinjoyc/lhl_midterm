@@ -1,7 +1,7 @@
 # press review button ==>> review_cato
-# get "/review" do 
-#   erb :'review_cato'
-# end
+get "/review" do 
+  erb :'review_cato'
+end
 
  # update encounters info 
 post '/review' do
@@ -21,7 +21,7 @@ post '/review' do
     @encounter.d_review = params[:review]
     @encounter.a_ratings = params[:rating]
   end
-  @encounter.active = false
+  # @encounter.active = false
   @encounter.save
   redirect "/user/#{@user.id}"
   
