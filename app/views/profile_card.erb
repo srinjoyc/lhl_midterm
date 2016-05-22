@@ -1,0 +1,63 @@
+<!-- PROFILE SECTION ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ --> 
+
+<!-- TO USE MAKE SURE U PUT USER = @CURRENT+USER OR USER = USER.FIND(1,2,..ETC) -->
+    <div class="container">            
+        <div class="col-xs-12" >
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title"><%=user.username %></h3>
+            </div>
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="<%="/assets/p#{user.id}.jpg"%>" class="img-circle img-responsive"> </div>
+                <div class="col-xs-10 col-sm-10 hidden-md hidden-lg"> <br>
+                  <dl>
+                    <dt>Nickname</dt>
+                    <dd>Height</dd>
+                    <dt>Weight</dt>
+                    <dt>Hometown</dt>
+                    <dt>Age</dt>
+                    <dt>Reach</dt>  
+                  </dl>
+                </div>
+                <div class=" col-md-4 col-lg-4 "> 
+                  <table class="table table-user-information">
+                    <tbody>
+                      <tr>
+                        <td>Nickname:</td>
+                        <td><%=user.nickname %> </td>
+                      </tr>
+                      <tr>
+                        <td>Weight:</td>
+                        <td><%=user.weight %></td>
+                      </tr>
+                      <tr>
+                        <td>Height:</td>
+                        <td><%=user.height %></td>
+                      </tr>
+                      <tr>
+                        <td>Hometown:</td>
+                        <td><%=user.hometown %></td>
+                      </tr>
+                      <tr>
+                        <td>Age:</td>
+                        <td><%=user.age %></td>
+                      </tr>
+                      <tr>
+                        <td>Reach:</td>
+                        <td><%=user.reach %></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <a href="/edit_profile" class="btn btn-primary">Edit</a>
+                </div>
+                <div class=" col-md-4 col-lg-4 " style="text-align: center;"> 
+                    <h2> Quick Bio</h2>
+                   <p> <%=user.bio %> </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>  <!-- end profile section --> 
