@@ -21,6 +21,7 @@ post '/review' do
     @encounter.d_review = params[:review]
     @encounter.a_ratings = params[:rating]
   end
+  @encounter.active = false
   @encounter.save
   redirect "/user/#{@user.id}"
   
