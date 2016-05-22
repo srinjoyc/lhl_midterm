@@ -1,30 +1,12 @@
+<div id="wrapper" style = "padding: 50px;">
+  <div class="row">
+      <div class="col-lg-12">
+        <h1 class="page-header" style="text-align: center;">Dashboard</h1>
+      </div>
+  </div>
 
-
-<body>
-    <div id="wrapper" style = "padding: 50px;">
-        <div class="row">
-            <nav class="navbar navbar-default">
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                      <a class="navbar-brand" href="#">Welcome, Srinjoy</a>
-                </div>
-                <ul class="nav navbar-nav pull-right">
-                  <li class="active"><a href="#">Home</a></li>
-                  <li><a href="#">Page 1</a></li>
-                  <li><a href="#">Page 2</a></li>
-                  <li><a href="#">Page 3</a></li>
-                </ul>
-              </div>
-            </nav>
-
-            <div class="row">
-                <div class="col-lg-12">
-                    <h1 class="page-header" style="text-align: center;">Dashboard</h1>
-                </div>
-            </div>
-            <!-- /.row -->
-<!-- PROFILE SECTION ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ --> 
-    <div class="container">            
+<!-- PROFILE SECTION ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <div class="container">
         <div class="col-xs-12" >
           <div class="panel panel-info">
             <div class="panel-heading">
@@ -40,10 +22,10 @@
                     <dt>Weight</dt>
                     <dt>Hometown</dt>
                     <dt>Age</dt>
-                    <dt>Reach</dt>  
+                    <dt>Reach</dt>
                   </dl>
                 </div>
-                <div class=" col-md-4 col-lg-4 "> 
+                <div class=" col-md-4 col-lg-4 ">
                   <table class="table table-user-information">
                     <tbody>
                       <tr>
@@ -74,8 +56,8 @@
                   </table>
                   <a href="/edit_profile" class="btn btn-primary">Edit</a>
                 </div>
-                <div class=" col-md-4 col-lg-4 " style="text-align: center;"> 
-                    <h2> Quick Bio</h2>
+                <div class=" col-md-4 col-lg-4 " style="text-align: center;">
+                    <h2>Philosophy</h2>
                    <p> <%= @current_user.bio %> </p>
                 </div>
               </div>
@@ -83,7 +65,7 @@
           </div>
         </div>
       </div>
-    </div>  <!-- end profile section --> 
+    </div>  <!-- end profile section -->
 
             <div class="row">
                 <div class="col-lg-3 col-md-6">
@@ -97,7 +79,7 @@
                                     <div class="huge"><%= @current_user.total_matches %></div>
                                     <div>Total encounters</div>
                                 </div>
-                            </div>  
+                            </div>
                         </div>
                         <a href="#">
                             <div class="panel-footer">
@@ -176,45 +158,10 @@
                 </div>
             </div>
             <!-- /.row -->
+
+
             <div class="jumbotron" style="background-color: #4C4C4C">
-                  <div class="row">
-                    <div class="col-md-2 col-md-offset-5">
-                        <h2 style="color: #fff">Find a Cato.</h2>
-                    </div>
-                  </div>
-              <div class="row">
-                <div class="col-md-6 col-md-offset-3">
-                    <form>
-                      <div class="form-group">
-                        <label style="color: #fff">Location </label>
-                        <input type="location" class="form-control" id="exampleInputEmail1" placeholder="Email">
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputPassword1" style="color: #fff">Date</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                      </div>
-                <div class="form-group">
-                <div class="row">
-
-                  <div class="col-xs-4">
-                        <label class="radio">
-                          <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" style="color:#fff"> To Death
-                        </label>
-                        <label class="radio">
-                          <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" style="color:#fff"> Schedule
-                        </label>
-                    </div>
-                    </div>
-                      <div class="row">
-                        <div class="col-md-2 col-md-offset-5">
-                            <button type="submit" class="btn btn-primary">Submit</button>
-
-                        </div>
-                      </div>
-                    </form>
-
-                </div>
-              </div>
+                    <%= erb :'/user_dash_segments/request_cato' %>
             </div>
                     <div class="panel panel-default">
                         <div class="panel-heading">
@@ -267,7 +214,7 @@
                                                           </label>
                                                           <textarea class="form-control" cols="40" id="review" name="review" rows="10"></textarea>
                                                         </div>
-                                                         <!--   -->
+
                                                         <div class="col-md-10 form-group">
                                                             <label class="control-label">Rate Your Opponent!  </label>
                                     
@@ -425,7 +372,3 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="/javascript/jquery.barrating.min.js"></script>
     <script src="/javascript/application.js"></script>
-
-
-
-</body>
