@@ -29,3 +29,14 @@ get '/encounter/:id' do
   @encounter = Encounter.find(params[:id])
   erb :encounter
 end # get '/encounter/:id'
+
+post '/encounter' do
+  @encounter = Encounter.new(
+    defender_id: session[:current_user]
+  )
+  if @encounter.save
+    redirect '/user/:id'
+  else 
+    erb :index
+  end
+end
