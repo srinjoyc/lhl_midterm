@@ -31,8 +31,7 @@ end
 
 get "/user/:id" do
 
-
-  @user = User.find(current_user.id) #params[:id]
+  @user = User.find(session[:current_user]) #params[:id]
   erb :'user_dash'
 end
 
