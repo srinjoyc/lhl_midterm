@@ -20,7 +20,7 @@ post '/login' do
   ##TODO: Redirect to dashboard when dashboard has stuff.
 end #post '/login'
 
-get '/user' do
+get '/user/' do
   if session[:current_user]
     redirect "/user/#{session[:current_user]}"
   else
