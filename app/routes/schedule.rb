@@ -12,6 +12,7 @@ put '/encounter/accept' do
   @encounter = Encounter.find(params[:encounter_id])
   @attacker = User.find(params[:attacker_id])
   @encounter.attacker = @attacker
+  @encounter.active = true
   @encounter.save
   redirect "/encounter/#{params[:encounter_id]}"
 end
