@@ -2,35 +2,46 @@
     @defender = User.find(@encounter.defender)
     @attacker = current_user
 %>
-<% if @encounter.attacker_id == current_user.id %>
 
-<div class="container-fluid well">
-<h1>Your Fate Is Sealed</h1>
+  <% if @encounter.attacker_id.to_i == current_user.id.to_i %>
+  <div class="alert alert-success">
+    <div class="container-fluid">
+      <div class="col-md-8">
+        <h1>Your Fate Is Sealed</h1>
 
-<p>
-  You are currently engaged in honorable combat with another expert of the
-  Martial Arts.
-</p>
+        <p>
+          You are currently committed to honorable combat with another expert of the
+          Martial Arts.
+        </p>
 
-<p>
-  When your task is accomplished, please click the Attack Complete
-  button and leave a review for your opponent.
-</p>
+        <p>
+          When your task is accomplished, please click the Attack Complete
+          button and leave a review for your opponent.
+        </p>
+      </div>
+      <div class="col-md-4" style="padding-top: 40px;">
+        <form method="get" action="/user/<%=current_user.id%>">
+          <input class="btn btn-primary" type="submit" style="height: 80px;" value="Back to My Profile">
+        </form>
+      </div>
 
-<% else %>
-<h1>Accept Challenge?</h1>
+  <% else %>
+  <div class="alert alert-warning">
+    <div class="container-fluid">
+      <h1>Accept Challenge?</h1>
 
-<form method='post' action='/encounter/accept'>
-  <input type="hidden" name="_method" value="put">
-  <input type="hidden" name="encounter_id" value="<%= @encounter.id %>">
-  <input type="hidden" name="attacker_id" value="<%= @attacker.id %>">
-  <input class="btn btn-primary" type="submit" value="Accept">
-</form>
-<% end %>
+      <form method='post' action='/encounter/accept'>
+        <input type="hidden" name="_method" value="put">
+        <input type="hidden" name="encounter_id" value="<%= @encounter.id %>">
+        <input type="hidden" name="attacker_id" value="<%= @attacker.id %>">
+        <input class="btn btn-primary" type="submit" value="Accept">
+      </form>
+  <% end %>
+  </div>
 </div>
 <br>
-<div class="container" style="margin-left: 10%; margin-right: 30%; margin-top: 30px;">
-  <div class="col-md-4 panel" style="margin-right: 50px;">
+<div class="container-fluid">
+  <div class="col-md-5 panel" style="margin-right: 50px;">
 
     <div class="panel-heading">
       <h2>Defender:</h2>
@@ -50,7 +61,7 @@
     </div>
   </div>
 
-  <div class="col-md-4 panel">
+  <div class="col-md-5 panel">
     <div class="panel-heading">
       <h2>Cato:</h2>
     <h3>
