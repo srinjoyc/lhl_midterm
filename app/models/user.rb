@@ -37,7 +37,7 @@ class User < ActiveRecord::Base
     end # find_unmatched
 
     def find_active_defenses
-      b.encounters_as_defender.where(active: true).where('attacker_id IS NOT NULL')
+      encounters_as_defender.where(active: true).where('attacker_id IS NOT NULL')
     end # find_active
 
     def find_active_attacks

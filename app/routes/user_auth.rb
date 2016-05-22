@@ -43,11 +43,3 @@ post '/logout' do
   session[:current_user], session[:password] = nil
   redirect '/'
 end #post '/logout'
-
-helpers do
-
-  def current_user
-    @current_user ||= User.find(session[:current_user]) if session[:current_user]
-  end # current_user
-
-end # helpers
