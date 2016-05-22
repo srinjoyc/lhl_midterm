@@ -11,7 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20160521224955) do
+
 
   create_table "encounters", force: :cascade do |t|
     t.string   "defender_id"
@@ -24,6 +26,8 @@ ActiveRecord::Schema.define(version: 20160521224955) do
     t.string   "d_review"
     t.integer  "a_damage"
     t.integer  "d_damage"
+    t.integer  "a_ratings"
+    t.integer  "d_ratings"
   end
 
   create_table "users", force: :cascade do |t|
