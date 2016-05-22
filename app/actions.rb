@@ -14,10 +14,6 @@ get '/user' do
   erb :'user_dash'
 end
 
-get '/user/new' do
-  @user = User.new
-  erb :'user_new'
-end
 
 post '/user' do
   @user = User.new(
@@ -43,9 +39,9 @@ end
 
 get "/edit_profile" do
   erb :'edit_profile'
-end  
+end
 
-post "/edit_profile" do 
+post "/edit_profile" do
   File.open('public/assets/p' + "#{current_user.id}.jpg", "w") do |f|
     f.write(params['myfile'][:tempfile].read)
   end
@@ -63,5 +59,3 @@ end
 get "/fighters" do
   erb :'fighters'
 end
-
-

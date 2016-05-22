@@ -44,4 +44,8 @@ class User < ActiveRecord::Base
       b.encounters_as_attacker.where(active: false)
     end
 
+    def build_address
+      "/assets/p#{self.id}.jpg"
+    end
+
 end

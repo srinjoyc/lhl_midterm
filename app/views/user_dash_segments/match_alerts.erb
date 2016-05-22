@@ -1,16 +1,28 @@
 <div class="row">
   <div class="col-md-12" width=100%>
-    <% if you are an active attacker %>
+
+
+    <% if current_user %>
+
+
     <div class="alert alert-success">
       <h1>The game is afoot.</h1>
       <h2>You have been matched with a Cato; Remain always vigilant.</h2>
     </div>
+
+
     <% elif  you are an active defender %>
+
+
       <div class="alert alert-danger">
         <h1 class="alert alert-danger">The game is afoot.</h1>
         <h2>You have been matched with a Cato; Remain always vigilant.</h2>
       </div>
+
+
       <% elif you have an unmatched encounter %>
+
+
         <div class="alert alert-danger">
           <h1 class="alert alert-danger">Patience, grasshopper.</h1>
           <h2>CatoPro is diligently working to find an <em>uke</em> worthy of your prowess.</h2>
