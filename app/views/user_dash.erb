@@ -203,10 +203,10 @@
                                               <% if match.a_ratings || match.d_ratings %>
                                                <% if match.d_review %>
                                                
-                                           <p><%= match.d_review %> - by <%= User.find(match.defender_id).nickname %></p>
+                                           <p><%= match.d_review %> - by <%= User.find(@user.id).nickname %></p>
                                            <% end %>
                                            <% if match.a_review %>
-                                           <p><%= match.a_review %> - by <%= User.find(match.attacker_id).nickname %></p>
+                                           <p><%= match.a_review %> - by <%= User.find(@user.id).nickname %></p>
                                            <% end %>
                                            <% else %>
                                             
@@ -304,10 +304,10 @@
                                            <!-- if (@user.id == match.attacker_id && match.a_review) || (@user.id == match.defender_id && match.d_review)  -->
                                             <% if match.d_review %>
                                            
-                                           <p><%= match.d_review %> - by <%= User.find(match.defender_id).nickname %></p>
+                                           <p><%= match.d_review %> - by <%= User.find(@user.id).nickname %></p>
                                             <% end %>
                                             <% if match.a_review %>
-                                           <p><%= match.a_review %> - by <%= User.find(match.attacker_id).nickname %></p>
+                                           <p><%= match.a_review %> - by <%= User.find(@user.id).nickname %></p>
                                            <% end %>
                                             <% else %>
                                           <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm" style="margin-top: 10px">Leave a Review of the Fight</button>

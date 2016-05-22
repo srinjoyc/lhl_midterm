@@ -12,8 +12,8 @@ post '/review' do
    @user = current_user
   if current_user.id == @encounter.attacker_id
     # binding.pry
-    @encounter.b_damage = params[:damage]
-    @encounter.b_review = params[:review]
+    @encounter.d_damage = params[:damage]
+    @encounter.d_review = params[:review]
     @encounter.a_ratings = params[:rating] 
     @encounter.active = false
 

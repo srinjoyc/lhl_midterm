@@ -35,7 +35,7 @@ post '/encounter' do
     defender_id: session[:current_user]
   )
   if @encounter.save
-    redirect '/user/:id'
+    redirect "/user/#{params[:id]}"
   else 
     erb :index
   end
