@@ -44,24 +44,7 @@
   <title>Catopro</title>
 </head>
 <body>
-
-  <!-- Top nav/login/logout -->
-  <div class="well" align="right">
-    <% if session[:current_user] %>
-    <strong><%=session[:current_user] %></strong>
-      <form method='post', action='/logout'>
-        <input type="submit" name="logout" value="LOGOUT">
-      </form>
-    <% else %>
-      <form method='post', action='/login'>
-        <label for='username'>Username:</label>
-        <input type='text' name='username' placeholder="Username">
-        <input type='password' name='password' placeholder="Password">
-        <input type='submit' name='submit' value='LOG IN' style="padding: 10px;">
-      </form>
-      <button class="btn btn-primary"><a href="/user/new" style="color:#FFF">SIGN UP</a></button>
-    <% end %>
-  </div>
+  <%= erb :'persistent/navbar'%>
 
   <%= yield %>
 </body>
