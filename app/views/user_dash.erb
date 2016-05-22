@@ -224,6 +224,7 @@
                         <div class="panel-body">
                             <ul class="timeline">
                                 <% current_user.past_matches.each_with_index do |match,index| %>
+
                                 <% if index%2==1 %>
                                 <li>
                                     <div class="timeline-badge"><i class="fa fa-check"></i>
@@ -234,8 +235,14 @@
                                             <p><small class="text-muted"><i class="fa fa-clock-o"></i> 11 hours ago via Twitter</small>
                                             </p>
                                         </div>
+
                                         <div class="timeline-body">
+                                            
                                             <p><%= match.id %></p>
+                                               <% if match.a_ratings || match.d_ratings %>
+                                           <%= match.attacker_id%>
+                                           <% else %>
+                                            
                                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm" style="margin-top: 10px">Leave a Review of the Fight</button>
                                             <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
                                               <div class="modal-dialog modal-sm">
@@ -243,10 +250,10 @@
                                                   <div class="container-fluid">
                                                       <div class="row">
                                                        <div class="col-md-10 col-sm-10 col-xs-12">
-                                                        <form method="post" action="/review">
+                                                        <form method='post' action="/review">
                                                         <input type="hidden" name="match_id" value="<%= match.id %>">
                                                          <div class="form-group ">
-                                                          <label class="control-label requiredField" for="number">
+                                                          <label class="control-label requiredField" for="damage">
                                                            Total Damage Taken
                                                            <span class="asteriskField">
                                                             *
@@ -258,7 +265,7 @@
                                                           <label class="control-label " for="message">
                                                            Leave your review!
                                                           </label>
-                                                          <textarea class="form-control" cols="40" id="reivew" name="review" rows="10"></textarea>
+                                                          <textarea class="form-control" cols="40" id="review" name="review" rows="10"></textarea>
                                                         </div>
                                                          <!--   -->
                                                         <div class="col-md-10 form-group">
@@ -266,20 +273,20 @@
                                     
                                                                 <div class="rating rating star">
                                                                     <div class="rating-wrapper">
-                                                                    <input type="radio" name="ratings" id="ratings" value="5">
+                                                                    <input type="radio" name="rating" id="rating" value="5">
                                                                     <label >5</label>
                                         
-                                                                    <input type="radio" name="ratings" id="ratings" value="4">
+                                                                    <input type="radio" name="rating" id="rating" value="4">
                                                                   <!--   <label class="fa fa-star" for="star-rating-4-1"></label> -->
                                                                     <label >4</label>
                                                                     
-                                                                    <input type="radio" name="ratings" id="ratings" value="3">
+                                                                    <input type="radio" name="rating" id="rating" value="3">
                                                                     <label >3</label>
                                                                     
-                                                                    <input type="radio" name="ratings" id="ratings" value="2">
+                                                                    <input type="radio" name="rating" id="rating" value="2">
                                                                     <label >2</label>
                                                                     
-                                                                    <input type="radio" name="ratings" id="ratings" value="1">
+                                                                    <input type="radio" name="rating" id="rating" value="1">
                                                                     <label >1</label>
                                                                     </div>
                                                                 </div>
@@ -301,6 +308,7 @@
                                               </div>
                                             </div>
                                         </div>
+                                        <% end %>
                                     </div>
                                 </li>
                                 <% else %>
@@ -313,6 +321,76 @@
                                         </div>
                                         <div class="timeline-body">
                                          <p><%= match.id %></p>
+                                           <% if match.a_ratings || match.d_ratings %>
+                                     <!--       if (current_user.id == match.attacker_id && match.a_ratings) || (current_user.id == match.defender_id && match.d_ratings) -->
+                                           <%= match.attacker_id %> 
+                                            <% else %>
+                                          <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm" style="margin-top: 10px">Leave a Review of the Fight</button>
+                                            <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+                                              <div class="modal-dialog modal-sm">
+                                                <div class="modal-content">
+                                                  <div class="container-fluid">
+                                                      <div class="row">
+                                                       <div class="col-md-10 col-sm-10 col-xs-12">
+                                                        <form method='post' action="/review">
+                                                        <input type="hidden" name="match_id" value="<%= match.id %>">
+                                                         <div class="form-group ">
+                                                          <label class="control-label requiredField" for="damage">
+                                                           Total Damage Taken
+                                                           <span class="asteriskField">
+                                                            *
+                                                           </span>
+                                                          </label>
+                                                          <input class="form-control" id="damage" name="damage" placeholder="1-10" type="text"/>
+                                                         </div>
+                                                         <div class="form-group ">
+                                                          <label class="control-label " for="message">
+                                                           Leave your review!
+                                                          </label>
+                                                          <textarea class="form-control" cols="40" id="review" name="review" rows="10"></textarea>
+                                                        </div>
+                                                         <!--   -->
+                                                        <div class="col-md-10 form-group">
+                                                            <label class="control-label">Rate Your Opponent!  </label>
+                                    
+                                                                <div class="rating rating star">
+                                                                    <div class="rating-wrapper">
+                                                                    <input type="radio" name="rating" id="rating" value="5">
+                                                                    <label >5</label>
+                                        
+                                                                    <input type="radio" name="rating" id="rating" value="4">
+                                                                  <!--   <label class="fa fa-star" for="star-rating-4-1"></label> -->
+                                                                    <label >4</label>
+                                                                    
+                                                                    <input type="radio" name="rating" id="rating" value="3">
+                                                                    <label >3</label>
+                                                                    
+                                                                    <input type="radio" name="rating" id="rating" value="2">
+                                                                    <label >2</label>
+                                                                    
+                                                                    <input type="radio" name="rating" id="rating" value="1">
+                                                                    <label >1</label>
+                                                                    </div>
+                                                                </div>
+                                                        </div>
+
+
+                                                         <!-- -->
+                                                         <div class="form-group">
+                                                          <div>
+                                                           <button class="btn btn-primary " name="submit" type="submit">
+                                                            Submit
+                                                           </button>
+                                                          </div>
+                                                         </div>
+                                                        </form>
+                                                       </div>
+                                                      </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                        </div>
+                                        <% end %>
                                         </div>
                                     </div>
                                 </li>

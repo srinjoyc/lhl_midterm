@@ -10,19 +10,26 @@ post '/review' do
    @encounter = Encounter.find(params[:match_id])
 
    @user = current_user
-  if current_user.id = @encounter.attacker_id
-    
+  if current_user.id == @encounter.attacker_id
+    # binding.pry
     @encounter.a_damage = params[:damage]
     @encounter.a_review = params[:review]
     @encounter.d_ratings = params[:rating] 
+    @encounter.active = false
 
   else 
     @encounter.d_damage = params[:damage]
     @encounter.d_review = params[:review]
     @encounter.a_ratings = params[:rating]
   end
-  # @encounter.active = false
-  @encounter.save
-  redirect "/user/#{@user.id}"
+
+  @encounter.active = false
+  # binding.pry
+  if @encounter.save
+    redirect "/user/#{@user.id}"
+  else 
+    redirect "/"
+  end
+
   
 end

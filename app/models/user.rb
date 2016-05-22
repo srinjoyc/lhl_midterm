@@ -12,7 +12,10 @@ class User < ActiveRecord::Base
     end
   
     def past_matches
-      self.encounters_as_defender.where.not(attacker_id: self.id).order('id DESC').limit(5)
+      # self.encounters_as_defender.where.not(attacker_id: self.id).order('id DESC').limit(5)
+      # total_encounters = self.encounters_as_defender.where.not(attacker_id: self.id) << self.encounters_as_attacker.where.not(defender_id: self.id)
+      total_encounters = self.encounters_as_defender << self.encounters_as_attacker
+      total_encounters.order('id DESC').limit(5)
     end
 
 
