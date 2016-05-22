@@ -178,16 +178,34 @@
                                     </div>
                                     <div class="timeline-panel">
                                         <div class="timeline-heading">
-                                            <h4 class="timeline-title">Lorem ipsum dolor</h4>
-                                            <p><small class="text-muted"><i class="fa fa-clock-o"></i> 11 hours ago via Twitter</small>
-                                            </p>
+                                            <h4 class="timeline-title">Your <%= match.id %>
+                                             <% if match.id == 1 %>
+                                                    st
+                                                <% elsif match.id == 2 %>
+                                                    nd
+                                                <% elsif match.id == 3 %>
+                                                    rd
+                                                <% else %>
+                                                    th
+                                                <% end %> 
+
+                                            match!
+
+                                            </h4>
+                                           <!--  <p><small class="text-muted"><i class="fa fa-clock-o"></i> 11 hours ago via Twitter</small>
+                                            </p> -->
                                         </div>
 
                                         <div class="timeline-body">
                                             
-                                            <p><%= match.id %></p>
+                                            <!-- <p></p> -->
                                                <% if match.a_ratings || match.d_ratings %>
-                                           <%= match.attacker_id%>
+                                               <% if match.d_review %>
+                                           <p><%= match.d_review %> - review by <%= User.find(match.defender_id).nickname %></p>
+                                           <% end %>
+                                           <% if match.a_review %>
+                                           <p><%= match.a_review %> - review by <%= User.find(match.attacker_id).nickname %></p>
+                                           <% end %>
                                            <% else %>
                                             
                                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm" style="margin-top: 10px">Leave a Review of the Fight</button>
@@ -264,13 +282,30 @@
                                     </div>
                                     <div class="timeline-panel">
                                         <div class="timeline-heading">
-                                            <h4 class="timeline-title">Lorem ipsum dolor</h4>
+                                            <h4 class="timeline-title">Your <%= match.id %>
+                                                <% if match.id == 1 %>
+                                                    st
+                                                <% elsif match.id == 2 %>
+                                                    nd
+                                                <% elsif match.id == 3 %>
+                                                    rd
+                                                <% else %>
+                                                    th
+                                                <% end %> 
+                                            match!
+
+                                            </h4>
                                         </div>
                                         <div class="timeline-body">
-                                         <p><%= match.id %></p>
+                                        <!--  <p>Your <%= match.id %>th match!</p> -->
                                            <% if match.a_ratings || match.d_ratings %>
                                      <!--       if (current_user.id == match.attacker_id && match.a_ratings) || (current_user.id == match.defender_id && match.d_ratings) -->
-                                           <%= match.attacker_id %> 
+                                            <% if match.d_review %>
+                                           <p><%= match.d_review %> - review by <%= User.find(match.defender_id).nickname %></p>
+                                            <% end %>
+                                            <% if match.a_review %>
+                                           <p><%= match.a_review %> - review by <%= User.find(match.attacker_id).nickname %></p>
+                                           <% end %>
                                             <% else %>
                                           <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm" style="margin-top: 10px">Leave a Review of the Fight</button>
                                             <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
