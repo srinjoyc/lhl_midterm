@@ -4,21 +4,25 @@ get "/review" do
 end
 
  # update encounters info 
-put '/review' do
+post '/review' do
   # pseudo code
-   @encounter = Encounter.find( current encouter id )
+  # binding.pry
+   @encounter = Encounter.find(params[:match_id])
+
    @user = current_user
   if current_user.id = @encounter.attacker_id
     
-    @encounter.a_damage = damage
-    @encounter.a_review = review
-    @encounter.a_rating = rating 
+    @encounter.a_damage = params[:damage]
+    @encounter.a_review = params[:review]
+    @encounter.d_ratings = params[:rating] 
 
   else 
-    @encounter.d_damage = damage
-    @encounter.d_review = review
-    @encounter.d_rating = rating
+    @encounter.d_damage = params[:damage]
+    @encounter.d_review = params[:review]
+    @encounter.a_ratings = params[:rating]
   end
+  # @encounter.active = false
   @encounter.save
   redirect "/user/#{@user.id}"
+  
 end
