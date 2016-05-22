@@ -2,6 +2,7 @@
 require_relative 'routes/user_auth'
 require_relative 'routes/schedule'
 require_relative 'routes/review'
+require_relative 'routes/helper_methods'
 
 
 
@@ -31,7 +32,7 @@ end
 
 get "/user/:id" do
 
-
+  @alert_params = alert_switch
   @user = User.find(current_user.id) #params[:id]
   erb :'user_dash'
 end
