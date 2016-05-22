@@ -1,6 +1,7 @@
 ##### pseudo code ish #######
 require_relative 'routes/user_auth'
 require_relative 'routes/schedule'
+require_relative 'routes/review'
 
 
 
@@ -39,6 +40,7 @@ get "/user/:id" do
   erb :'user_dash'
 end
 
+
 get "/edit_profile" do
   erb :'edit_profile'
 end  
@@ -55,4 +57,5 @@ end
 get "/user/review" do
   erb :'review_cato'
 end
+
 
