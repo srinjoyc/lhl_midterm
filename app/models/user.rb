@@ -23,4 +23,6 @@ class User < ActiveRecord::Base
     def average_rating 
         self.encounters_as_defender.average(d_review.to_i) + self.encounters_as_attacker.average(a_review.to_i)  
     end 
+
+    
 end 
