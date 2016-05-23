@@ -187,7 +187,7 @@
                                                     rd
                                                 <% else %>
                                                     th
-                                                <% end %> 
+                                                <% end %>
 
                                             match!
 
@@ -197,19 +197,20 @@
                                         </div>
 
                                         <div class="timeline-body">
-                                            
+
                                             <!-- <p></p> -->
                                              <!--  if (@user.id == match.attacker_id && match.a_review) || (@user.id == match.defender_id && match.d_review)  -->
                                               <% if match.a_ratings || match.d_ratings %>
                                                <% if match.d_review %>
-                                               
                                            <p><%= match.d_review %> - by <%= User.find(match.defender_id).nickname %></p>
+                                           <p><%= match.created_at.in_time_zone("Pacific Time (US & Canada)").strftime('%a, %d %b %Y %H:%M:%S')%></p>
                                            <% end %>
                                            <% if match.a_review %>
                                            <p><%= match.a_review %> - by <%= User.find(match.attacker_id).nickname %></p>
+                                              <p><%= match.created_at.in_time_zone("Pacific Time (US & Canada)").strftime('%a, %d %b %Y %H:%M:%S')%></p>
                                            <% end %>
                                            <% else %>
-                                            
+
                                             <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm" style="margin-top: 10px">Leave a Review of the Fight</button>
                                             <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
                                               <div class="modal-dialog modal-sm">
@@ -220,7 +221,7 @@
                                                         <form method='post' action="/review">
                                                         <input type="hidden" name="match_id" value="<%= match.id %>">
                                                          <div class="form-group ">
-                                            
+
                                                           <label class="control-label requiredField" for="damage">
                                                            Total Damage Taken
                                                            <span class="asteriskField">
@@ -238,22 +239,22 @@
 
                                                         <div class="col-md-10 form-group">
                                                             <label class="control-label">Rate Your Opponent!  </label>
-                                    
+
                                                                 <div class="rating rating star">
                                                                     <div class="rating-wrapper">
                                                                     <input type="radio" name="rating" id="rating" value="5">
                                                                     <label >5</label>
-                                        
+
                                                                     <input type="radio" name="rating" id="rating" value="4">
                                                                   <!--   <label class="fa fa-star" for="star-rating-4-1"></label>
                                                                     <label >4</label>
-                                                                    
+
                                                                     <input type="radio" name="rating" id="rating" value="3">
                                                                     <label >3</label>
-                                                                    
+
                                                                     <input type="radio" name="rating" id="rating" value="2">
                                                                     <label >2</label>
-                                                                    
+
                                                                     <input type="radio" name="rating" id="rating" value="1">
                                                                     <label >1</label>
                                                                     </div>
@@ -275,7 +276,7 @@
                                                 </div>
                                               </div>
                                             </div>
-                                        </div> --> 
+                                        </div> -->
 
                                         <% end %>
                                     </div>
@@ -295,7 +296,7 @@
                                                     rd
                                                 <% else %>
                                                     th
-                                                <% end %> 
+                                                <% end %>
                                             match!
 
                                             </h4>
@@ -305,11 +306,13 @@
                                           <% if match.a_ratings || match.d_ratings %>
                                            <!-- if (@user.id == match.attacker_id && match.a_review) || (@user.id == match.defender_id && match.d_review)  -->
                                             <% if match.d_review %>
-                                           
+
                                            <p><%= match.d_review %> - by <%= User.find(match.defender_id).nickname %></p>
+                                              <p><%= match.created_at.in_time_zone("Pacific Time (US & Canada)").strftime('%a, %d %b %Y %H:%M:%S')%></p>
                                             <% end %>
                                             <% if match.a_review %>
                                            <p><%= match.a_review %> - by <%= User.find(match.attacker_id).nickname %></p>
+                                              <p><%= match.created_at.in_time_zone("Pacific Time (US & Canada)").strftime('%a, %d %b %Y %H:%M:%S')%></p>
                                            <% end %>
                                             <% else %>
                                           <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm" style="margin-top: 10px">Leave a Review of the Fight</button>
@@ -336,25 +339,25 @@
                                                           </label>
                                                           <textarea class="form-control" cols="40" id="review" name="review" rows="10"></textarea>
                                                         </div>
-                                                        
+
                                                         <div class="col-md-10 form-group">
                                                             <label class="control-label">Rate Your Opponent!  </label>
-                                    
+
                                                                 <div class="rating rating star">
                                                                     <div class="rating-wrapper">
                                                                     <input type="radio" name="rating" id="rating" value="5">
                                                                     <label >5</label>
-                                        
+
                                                                     <input type="radio" name="rating" id="rating" value="4">
-                                                                
+
                                                                     <label >4</label>
-                                                                    
+
                                                                     <input type="radio" name="rating" id="rating" value="3">
                                                                     <label >3</label>
-                                                                    
+
                                                                     <input type="radio" name="rating" id="rating" value="2">
                                                                     <label >2</label>
-                                                                    
+
                                                                     <input type="radio" name="rating" id="rating" value="1">
                                                                     <label >1</label>
                                                                     </div>

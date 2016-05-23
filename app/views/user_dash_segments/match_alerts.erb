@@ -23,7 +23,7 @@
       <% if current_user.find_active_attacks.count > 0 %>
         <div class="row">
           <div class="col-md-8 col-md-offset-2">
-            <a href="/user/<%= the_guy_who_you_are_attacking.id %>"><i class="fa fa-map-marker fa-1x" style="margin-right: 5px;"></i>Click here to view your charge.</a>
+            <a href="/encounter/<%= current_user.encounters_as_attacker.find(1).id %>"><i class="fa fa-map-marker fa-1x" style="margin-right: 5px;"></i>Click here to view your charge.</a>
           </div>
         </div>
       <% end %>
