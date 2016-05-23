@@ -65,3 +65,7 @@ get "/shame" do
   current_user.destroy if current_user
   erb :shame
 end #shame
+
+get "/about" do
+  erb :about
+end
