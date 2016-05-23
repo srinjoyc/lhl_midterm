@@ -13,6 +13,13 @@
         </div>
         <div class="row">
           <form method="post" action="/encounter">
+          <div class="form-group">
+               <select class="form-control" name="encounter_type" id="encounter_type">
+                 <option>Select Encounter Type...</option>
+                 <option>Not to the death</option>
+                 <option>Other</option>
+               </select>
+            </div><!--dropdown-->
             <div class="form-group" style="padding-top: 20px;">
                <select class="form-control" name="encounter_time" id="encounter_time">
                  <option>Select Time of Encounter...</option>
@@ -20,13 +27,7 @@
                  <option>Schedule a time...</option>
                </select>
             </div><!--dropdown-->
-            <div class="form-group">
-               <select class="form-control" name="encounter_type" id="encounter_type">
-                 <option>Select Encounter Type...</option>
-                 <option>Not to the death</option>
-                 <option>Other</option>
-               </select>
-            </div><!--dropdown-->
+        
 
         </div>
       </div>
