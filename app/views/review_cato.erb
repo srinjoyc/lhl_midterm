@@ -4,7 +4,8 @@
                 
                     <!-- START Review form -->
                     
-                    <form role="form">
+                    <form method='post' action="/review" role="form">
+
                         <div class="row">
                             <!-- Name -->
                          <!--    <div class="col-md-4 form-groupform-group">
@@ -15,7 +16,7 @@
                             <!-- Email -->
                             <div class="col-md-4 form-group">
                                 <label for="damage" class="control-label">Total Damge Taken</label>
-                                <input type="damage" class="form-control" id="damage" placeholder="1 ~ 100">
+                                <input type="damage" name="damage" class="form-control" id="damage" placeholder="1 ~ 10">
                             </div>
                             
                             <!-- Rating stars -->
@@ -24,20 +25,20 @@
                                     
                                 <div class="rating rating star">
                                     <div class="rating-wrapper">
-                                        <input type="radio" name="star-rating-1" id="star-rating-5-1" value="5">
+                                        <input type="radio" name="rating" id="rating" value="5">
                                         <label >5</label>
                                         
-                                        <input type="radio" name="star-rating-1" id="star-rating-4-1" value="4">
+                                        <input type="radio" name="rating" id="rating" value="4">
                                       <!--   <label class="fa fa-star" for="star-rating-4-1"></label> -->
                                         <label >4</label>
                                         
-                                        <input type="radio" name="star-rating-1" id="star-rating-3-1" value="3">
+                                        <input type="radio" name="rating" id="rating" value="3">
                                         <label >3</label>
                                         
-                                        <input type="radio" name="star-rating-1" id="star-rating-2-1" value="2">
+                                        <input type="radio" name="rating" id="rating" value="2">
                                         <label >2</label>
                                         
-                                        <input type="radio" name="star-rating-1" id="star-rating-1-1" value="1">
+                                        <input type="radio" name="rating" id="rating" value="1">
                                         <label >1</label>
                                     </div>
                                 </div>
@@ -46,13 +47,13 @@
                         
                         <!-- Message -->
                         <div class="form-group">
-                            <label for="message" class="control-label">Please leave your review!</label>
-                            <textarea class="form-control" id="message" cols="20" rows="6"></textarea>
+                            <label for="review" class="control-label">Please leave your review!</label>
+                            <textarea class="form-control" name="review" id="review" cols="20" rows="6"></textarea>
                         </div>
                         
                         <!-- Send button -->
                         <div class="form-group">
-                            <button type="button" class="btn btn-primary">Send review</button>
+                            <button type="submit" name="submit"class="btn btn-primary">Send review</button>
                         </div>
                     </form>
 

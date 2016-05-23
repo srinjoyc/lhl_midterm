@@ -36,11 +36,9 @@ post '/encounter' do
   )
   if @encounter.save
     redirect "/user/#{params[:id]}"
-<<<<<<< HEAD
-  else 
-=======
+
   else
->>>>>>> 47d0d5f0f8741e81fed5ed32421abf5e78ed5348
+
     erb :index
   end
 end
