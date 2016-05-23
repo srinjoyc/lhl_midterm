@@ -204,9 +204,11 @@
                                                <% if match.d_review %>
                                                
                                            <p><%= match.d_review %> - by <%= User.find(match.defender_id).nickname %></p>
+                                           <p><%= match.created_at.in_time_zone("Pacific Time (US & Canada)").strftime('%a, %d %b %Y %H:%M:%S')%></p>
                                            <% end %>
                                            <% if match.a_review %>
                                            <p><%= match.a_review %> - by <%= User.find(match.attacker_id).nickname %></p>
+                                              <p><%= match.created_at.in_time_zone("Pacific Time (US & Canada)").strftime('%a, %d %b %Y %H:%M:%S')%></p>
                                            <% end %>
                                            <% else %>
                                             
@@ -307,9 +309,11 @@
                                             <% if match.d_review %>
                                            
                                            <p><%= match.d_review %> - by <%= User.find(match.defender_id).nickname %></p>
+                                              <p><%= match.created_at.in_time_zone("Pacific Time (US & Canada)").strftime('%a, %d %b %Y %H:%M:%S')%></p>
                                             <% end %>
                                             <% if match.a_review %>
                                            <p><%= match.a_review %> - by <%= User.find(match.attacker_id).nickname %></p>
+                                              <p><%= match.created_at.in_time_zone("Pacific Time (US & Canada)").strftime('%a, %d %b %Y %H:%M:%S')%></p>
                                            <% end %>
                                             <% else %>
                                           <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm" style="margin-top: 10px">Leave a Review of the Fight</button>

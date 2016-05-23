@@ -41,7 +41,7 @@
 </div>
 <br>
 <div class="container-fluid">
-  <div class="col-md-5 panel" style="margin-right: 50px;">
+<!--   <div class="col-md-5 panel" style="margin-right: 50px;">
 
     <div class="panel-heading">
       <h2>Defender:</h2>
@@ -59,38 +59,120 @@
       </ul>
       <small><span style="color: #dd7777;">*Hard coded, not generated</span></small>
     </div>
-  </div>
+  </div> -->
 
-  <div class="col-md-5 panel">
-    <div class="panel-heading">
-      <h2>Cato:</h2>
-    <h3>
-    <% if @encounter.attacker_id %>
-      <%= @attacker.username %>
-    <% else %>
-      Cato Unassigned
-    <% end %>
-    </h3>
-  </div>
-    <div class="well">
-      <ul>
-        <li>Height: <%= @attacker.height %></li>
-        <li>Weight: <%= @attacker.weight %></li>
-        <li><span style="color: #dd7777;">Attacks: <%= "26" %>*</span></li>
-        <li><span style="color: #dd7777;">Defenses: <%= "163" %>*</span></li>
-      </ul>
-      <small><span style="color: #dd7777;">*Hard coded, not generated</span></small>
-    </div>
-  </div>
+
+        <div class="col-md-5" >
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">Defender: <%= @defender.username %></h3>
+            </div>
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="<%="/assets/p#{@defender.id}.jpg"%>" class="img-circle img-responsive"> </div>
+                <div class="col-xs-10 col-sm-10 hidden-md hidden-lg"> <br>
+                  <dl>
+                    <dt>Nickname</dt>
+                    <dd>Height</dd>
+                    <dt>Weight</dt>
+                    <dt>Hometown</dt>
+                    <dt>Age</dt>
+                    <dt>Reach</dt>
+                  </dl>
+                </div>
+                <div class=" col-md-8 col-lg-8 ">
+                  <table class="table table-user-information">
+                    <tbody>
+                      <tr>
+                        <td>Nickname:</td>
+                        <td><%= @defender.nickname %> </td>
+                      </tr>
+                      <tr>
+                        <td>Weight:</td>
+                        <td><%= @defender.weight %></td>
+                      </tr>
+                      <tr>
+                        <td>Height:</td>
+                        <td><%= @defender.height %></td>
+                      </tr>
+                      <tr>
+                        <td>Hometown:</td>
+                        <td><%= @defender.hometown %></td>
+                      </tr>
+                      <tr>
+                        <td>Age:</td>
+                        <td><%= @defender.age %></td>
+                      </tr>
+                      <tr>
+                        <td>Reach:</td>
+                        <td><%= @defender.reach %></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                 
+                </div>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      
+    
+
+    <div class="col-md-5" >
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">Attacker: <%= @attacker.username %></h3>
+            </div>
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="<%="/assets/p#{@attacker.id}.jpg"%>" class="img-circle img-responsive"> </div>
+                <div class="col-xs-10 col-sm-10 hidden-md hidden-lg"> <br>
+                  <dl>
+                    <dt>Nickname</dt>
+                    <dd>Height</dd>
+                    <dt>Weight</dt>
+                    <dt>Hometown</dt>
+                    <dt>Age</dt>
+                    <dt>Reach</dt>
+                  </dl>
+                </div>
+                <div class=" col-md-8 col-lg-8 ">
+                  <table class="table table-user-information">
+                    <tbody>
+                      <tr>
+                        <td>Nickname:</td>
+                        <td><%= @attacker.nickname %> </td>
+                      </tr>
+                      <tr>
+                        <td>Weight:</td>
+                        <td><%= @attacker.weight %></td>
+                      </tr>
+                      <tr>
+                        <td>Height:</td>
+                        <td><%= @attacker.height %></td>
+                      </tr>
+                      <tr>
+                        <td>Hometown:</td>
+                        <td><%= @attacker.hometown %></td>
+                      </tr>
+                      <tr>
+                        <td>Age:</td>
+                        <td><%= @attacker.age %></td>
+                      </tr>
+                      <tr>
+                        <td>Reach:</td>
+                        <td><%= @attacker.reach %></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                 
+                </div>
+                
+              </div>
+            </div>
+          </div>
+        </div>
 </div>
 <br>
-<form method="post" action="/encounter/confirm">
-<div class="col-md-1" style="margin-left: 20%; margin-right: 20%;"><input class="btn btn-main" type="submit" value="Confirm Attack (Doesn't do anything yet)" name="confirm_attack">
-</form>
-<div style="float: clear;"><a href="/">Go back to home page</a></div></div>
-=======
 
-<% if @current_user %>
-
-<% end %>
-<a href="/">Go back to home page</a>
