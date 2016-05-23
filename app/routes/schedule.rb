@@ -31,6 +31,7 @@ get '/encounter/:id' do
 end # get '/encounter/:id'
 
 post '/encounter' do
+
   if params[:encounter_time] == "Schedule a time..."
     redirect "/shame"
   else
@@ -42,5 +43,6 @@ post '/encounter' do
     else
       erb :index
     end
+
   end
 end

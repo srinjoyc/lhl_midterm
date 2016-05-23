@@ -14,7 +14,7 @@ helpers do
           icon: "fa fa-shield fa-5x",
           heading: "The game is afoot.",
           subheading: "You have been matched with a Cato; Remain always vigilant.",
-          top_btn_href: "#",
+          top_btn_href: "/review",
           top_btn_text: "<p>Attack Complete</p><p><small>(Leave review)</small></p>",
           bottom_btn_href: "/shame",
           bottom_btn_text: "Cancel Attack"
@@ -27,7 +27,7 @@ helpers do
           icon: "fa fa-crosshairs fa-5x",
           heading: "Target Acquired.",
           subheading: "Happy hunting, Cato. Remember: To show mercy is to dishonor your charge.",
-          top_btn_href: "#",
+          top_btn_href: "/review",
           top_btn_text: "<p>Attack Complete</p><p><small>(Leave review)</small></p>",
           bottom_btn_href: "/shame",
           bottom_btn_text: "Cancel Attack"
