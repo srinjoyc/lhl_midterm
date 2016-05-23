@@ -1,79 +1,61 @@
-<div class="row" style="padding-bottom: 20px; display: flex; align-items: center; font-size: 18px;" id="request">
-  <div class="col-md-4">
-    <h1 style="color: #fff; text-align: right;">Test</h2>
-    <h1 style="color: #fff; text-align: right;">Your</h2>
-    <h1 style="color: #fff; text-align: right;">Preparedness</h2>
-  </div>
-  <!-- <div class="col-md-1"></div> -->
-  <div class="col-md-4" style="color: silver; margin-left: 20px; padding-top: 20px;">
-    <p style="line-height: 200%;">
-      By requesting a Cato, you are submitting yourself for consideration by the
-      CatoPro community. You will be notified when a volunteer member has
-      agreed to serve as your Cato, and an attack may take place any time thereafter.
-    </p>
 
-    <p>
-      You will have no further information about the nature of your attacker or
-      the timing of the attack.
-
-    </p>
-
-  </div>
-  <div class="col-md-3" style="color: silver; line-height: 200%">
-    <p style="line-height: 200%;">
-      Your request is predicated on the assumptio n that you are in a constant state of martial readiness.
-      A Cato is honor-bound to exploit your weaknesses; An attack may come at
-      any place or time.
-      <span style="text-decoration: line-through; color: #222222;">Good luck!</span> No luck. Luck is for the weak.
-    </p>
-  </div>
-</div>
-<div class="row">
-  <div class="col-md-2"></div>
-<form method="post" action="/encounter">
-  <div class="col-md-4">
+  <div class= "container" style="background-color: #4C4C4C; color:white; border-radius: 2em;">
     <div class="row">
-        <div class="col-md-12">
-        <div class="form-group">
-         <label for="sel1"><h4 style="color: white">Encounter Type</h4></label>
-         <select class="form-control" name="encounter_type" id="encounter_type">
-           <option>Select Encounter Type...</option>
-           <option>Not to the death</option>
-           <option>Other</option>
-         </select>
-        </div><!--dropdown-->
-      </div> <!--col-md-4-->
-    </div><!--row-->
-
-    <div class="row">
-      <div class="col-md-12">
-        <div class="form-group">
-         <label for="sel1"><h4 style="color: white">Time of Encounter</h4></label>
-         <select class="form-control" name="encounter_time" id="encounter_time">
-           <option>Select Time of Encounter...</option>
-           <option>Random</option>
-           <option>Schedule a time...</option>
-         </select>
-        </div><!--dropdown-->
-      </div><!--col-md-4-->
-    </div> <!--row-->
+      <div class="col-md-4" style="padding-right: 30px; padding-top: 50px;">
+        <div class="row" style="text-align: center;">
+          <h3 style="font-"> Test </h3>
+        </div>
+        <div class="row" style="text-align: center;">
+          <h3> Your </h3>
+        </div>
+        <div class="row" style="text-align: center;" >
+          <h3> Preparedness </h3>
+        </div>
+        <div class="row">
+          <form method="post" action="/encounter">
+            <div class="form-group" style="padding-top: 20px;">
+               <select class="form-control" name="encounter_time" id="encounter_time">
+                 <option>Select Time of Encounter...</option>
+                 <option>Random</option>
+                 <option>Schedule a time...</option>
+               </select>
+            </div><!--dropdown-->
+            <div class="form-group">
+               <select class="form-control" name="encounter_type" id="encounter_type">
+                 <option>Select Encounter Type...</option>
+                 <option>Not to the death</option>
+                 <option>Other</option>
+               </select>
+            </div><!--dropdown-->
+          </form>
+        </div>
+      </div>
+      <div class="col-md-8" style="padding: 25px; border-left: 2px solid white;">
+        <div class="row">
+          <p style="font-size: 16px;">
+            By requesting a Cato, you are submitting yourself for consideration by the
+            CatoPro community. You will be notified when a volunteer member has
+            agreed to serve as your Cato, and an attack may take place any time thereafter.
+          </p>
+          <p style="font-size: 16px;"> 
+            Your request is predicated on the assumption that you are in a constant state of martial readiness.
+            A Cato is honor-bound to exploit your weaknesses; An attack may come at
+            any place or time.
+          </p>
+          <p>
+            You will have no further information about the nature of your attacker or the timing of the attack.
+          </p>
+            <p style="font-size: 16px;">
+              Your request is predicated on the assumptio n that you are in a constant state of martial readiness.
+              A Cato is honor-bound to exploit your weaknesses; An attack may come at any place or time.
+          </p>
+          <p style="font-size: 16px;">
+            <span style="text-decoration: line-through; color: #222222;">Good luck!</span> No luck. Luck is for the weak.
+          </p>
+        </div>
+        <div class="row">
+          <button class="btn-block btn-danger" type="submit" style="height: 50px; margin-top: 20px" type="submit" value="Submit"> <span style="font-size: 25px;"><strong>Request A Cato Now.</strong></span></button>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="col-md-5">
-
-      <button class="btn-block btn-danger" type="submit" style="height: 150px;" type="submit">
-
-        <p style="font-size: 3em;">
-          <strong>
-          Request Cato
-          </strong>
-        </p>
-
-        <p>
-          This action cannot be undone.
-        </p>
-      </button>
-  </div>
-  </form>
-  </div> <!--row-->
-</div>
