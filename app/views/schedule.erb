@@ -21,7 +21,7 @@
           <% defender = User.find(encounter.defender_id) %>
           <tr>
             <td style="padding: 20px;"><%= defender.username  %></td>
-            <td style="padding: 20px;"><%= encounter.location %></td>
+            <td style="padding: 20px;"><%= defender.hometown %></td>
             <td style="padding: 20px;">
               <form method='post' action='/encounter/<%= encounter.id %>'>
                 <input type="hidden" name="_method" value="put">
