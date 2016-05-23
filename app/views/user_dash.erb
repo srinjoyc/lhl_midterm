@@ -163,7 +163,7 @@
             <div class="jumbotron" style="background-color: #4C4C4C">
                     <%= erb :'/user_dash_segments/request_cato' %>
             </div>
-                    <div class="panel panel-default">
+                    <div class="panel panel-default" id="past-fights">
                         <div class="panel-heading">
                             <i class="fa fa-clock-o fa-fw"></i> Past Fights
                         </div>
@@ -210,7 +210,7 @@
                                            <% end %>
                                            <% else %>
                                             
-                                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm" style="margin-top: 10px">Leave a Review of the Fight</button>
+                                            <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm" style="margin-top: 10px">Leave a Review of the Fight</button>
                                             <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
                                               <div class="modal-dialog modal-sm">
                                                 <div class="modal-content">
@@ -220,6 +220,7 @@
                                                         <form method='post' action="/review">
                                                         <input type="hidden" name="match_id" value="<%= match.id %>">
                                                          <div class="form-group ">
+                                            
                                                           <label class="control-label requiredField" for="damage">
                                                            Total Damage Taken
                                                            <span class="asteriskField">
@@ -244,7 +245,7 @@
                                                                     <label >5</label>
                                         
                                                                     <input type="radio" name="rating" id="rating" value="4">
-                                                                  <!--   <label class="fa fa-star" for="star-rating-4-1"></label> -->
+                                                                  <!--   <label class="fa fa-star" for="star-rating-4-1"></label>
                                                                     <label >4</label>
                                                                     
                                                                     <input type="radio" name="rating" id="rating" value="3">
@@ -260,7 +261,7 @@
                                                         </div>
 
 
-                                                         <!-- -->
+                                                         <!--
                                                          <div class="form-group">
                                                           <div>
                                                            <button class="btn btn-primary " name="submit" type="submit">
@@ -274,7 +275,8 @@
                                                 </div>
                                               </div>
                                             </div>
-                                        </div>
+                                        </div> --> 
+
                                         <% end %>
                                     </div>
                                 </li>
@@ -310,7 +312,7 @@
                                            <p><%= match.a_review %> - by <%= User.find(match.attacker_id).nickname %></p>
                                            <% end %>
                                             <% else %>
-                                          <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm" style="margin-top: 10px">Leave a Review of the Fight</button>
+                                          <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm" style="margin-top: 10px">Leave a Review of the Fight</button>
                                             <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
                                               <div class="modal-dialog modal-sm">
                                                 <div class="modal-content">
@@ -334,7 +336,7 @@
                                                           </label>
                                                           <textarea class="form-control" cols="40" id="review" name="review" rows="10"></textarea>
                                                         </div>
-                                                         <!--   -->
+                                                        
                                                         <div class="col-md-10 form-group">
                                                             <label class="control-label">Rate Your Opponent!  </label>
                                     
@@ -344,7 +346,7 @@
                                                                     <label >5</label>
                                         
                                                                     <input type="radio" name="rating" id="rating" value="4">
-                                                                  <!--   <label class="fa fa-star" for="star-rating-4-1"></label> -->
+                                                                
                                                                     <label >4</label>
                                                                     
                                                                     <input type="radio" name="rating" id="rating" value="3">
@@ -360,7 +362,6 @@
                                                         </div>
 
 
-                                                         <!-- -->
                                                          <div class="form-group">
                                                           <div>
                                                            <button class="btn btn-primary " name="submit" type="submit">
@@ -374,7 +375,7 @@
                                                 </div>
                                               </div>
                                             </div>
-                                        </div>
+                                        </div> -->
                                         <% end %>
                                         </div>
                                     </div>
