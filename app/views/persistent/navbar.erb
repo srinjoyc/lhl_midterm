@@ -1,4 +1,10 @@
-<nav class="navbar navbar-inverse">
+<style>
+
+  
+</style>
+
+
+<nav class="navbar navbar-inverse" style="margin-bottom: 0px">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -25,27 +31,22 @@
         <% if session[:current_user] %>
           <li>
             <a href="/user/<%=session[:current_user] %>"><strong>Signed in as <%=User.find(session[:current_user]).username %></strong></a>
-           <!-- <span style="color: #FF4444;"><strong><%=User.find(session[:current_user]).username %></strong></span> -->
           </li>
-
           <li><a href="#">
             <form method='post', action='/logout'>
-              <input class="btn btn-default" type="submit" name="logout" value="Sign out">
+              <input class="btn btn-success" type="submit" name="logout" value="Log out" style="border-radius:1em;">
             </form>
           </a>
           </li>
         <% else %>
-          <form method='post', action='/login'>
+          <form method='post', action='/login' style="margin-top:10px">
               <!-- <label for='username'>Username:</label> -->
-              <input type='text' name='username' placeholder="Username">
+              <input type='text' name='username' placeholder="Username" style="border-radius:.5em;">
               <!-- <label for='password'>Password:</label> -->
-              <input type='password' name='password' placeholder="Password">
-              <input class="btn navbar-btn" type='submit' name='submit' value='LOG IN'>
-              <button class="btn"><a href="/user/new" style="color: black;">SIGN UP</a></button>
+              <input type='password' name='password' placeholder="Password" style="border-radius:.5em; height:1.5em">
+              <input class="btn-success" type='submit' name='submit' value='Log In' style="border-radius:.5em;">
+              <button class="btn-primary" style="border-radius:.5em;"><a href="/user/new" style="color: black;">Sign-up</a></button>
            </form>
-
-
-
         <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->
