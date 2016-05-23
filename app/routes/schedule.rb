@@ -31,14 +31,18 @@ get '/encounter/:id' do
 end # get '/encounter/:id'
 
 post '/encounter' do
-  @encounter = Encounter.new(
-    defender_id: session[:current_user]
-  )
-  if @encounter.save
-    redirect "/user/#{params[:id]}"
 
+  if params[:encounter_time] == "Schedule a time..."
+    redirect "/shame"
   else
+    @encounter = Encounter.new(
+      defender_id: session[:current_user]
+    )
+    if @encounter.save
+      redirect "/user/#{params[:id]}"
+    else
+      erb :index
+    end
 
-    erb :index
   end
 end

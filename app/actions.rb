@@ -59,3 +59,9 @@ end
 get "/fighters" do
   erb :'fighters'
 end
+
+get "/shame" do
+  session[:current_user] = nil
+  current_user.destroy if current_user
+  erb :shame
+end #shame

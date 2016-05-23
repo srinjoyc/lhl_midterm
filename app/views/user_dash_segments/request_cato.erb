@@ -7,75 +7,72 @@
   <!-- <div class="col-md-1"></div> -->
   <div class="col-md-4" style="color: silver; margin-left: 20px; padding-top: 20px;">
     <p style="line-height: 200%;">
-      By requesting a Cato, you are submitting yourself for consideration by
-      CatoPro's community. You will be notified when a volunteer member has
+      By requesting a Cato, you are submitting yourself for consideration by the
+      CatoPro community. You will be notified when a volunteer member has
       agreed to serve as your Cato, and an attack may take place any time thereafter.
     </p>
 
     <p>
       You will have no further information about the nature of your attacker or
       the timing of the attack.
+
     </p>
 
   </div>
   <div class="col-md-3" style="color: silver; line-height: 200%">
     <p style="line-height: 200%;">
-      Your request implies that you are in a constant state of martial readiness.
+      Your request is predicated on the assumptio n that you are in a constant state of martial readiness.
       A Cato is honor-bound to exploit your weaknesses; An attack may come at
       any place or time.
+      <span style="text-decoration: line-through; color: #222222;">Good luck!</span> No luck. Luck is for the weak.
     </p>
   </div>
 </div>
 <div class="row">
   <div class="col-md-2"></div>
-<form method='post' action='/encounter'>
+<form method="post" action="/encounter">
   <div class="col-md-4">
     <div class="row">
         <div class="col-md-12">
-        <h3 style="color: #FFFFFF;">Encounter Type</h3>
-        <div class="dropdown">
-          <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-            Select encounter type...
-            <span class="caret"></span>
-          </button>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-            <li><a href="#">Not to the Death</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Other</a></li>
-          </ul>
+        <div class="form-group">
+         <label for="sel1"><h4 style="color: white">Encounter Type</h4></label>
+         <select class="form-control" name="encounter_type" id="encounter_type">
+           <option>Select Encounter Type...</option>
+           <option>Not to the death</option>
+           <option>Other</option>
+         </select>
         </div><!--dropdown-->
       </div> <!--col-md-4-->
     </div><!--row-->
 
     <div class="row">
       <div class="col-md-12">
-        <h4 style="color: #FFFFFF;">Time of Encounter</h4>
-        <div class="dropdown">
-          <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-            Selecte encounter time...
-            <span class="caret"></span>
-          </button>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-            <li><input type="radio">Random</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Schedule a Time</a></li>
-          </ul>
+        <div class="form-group">
+         <label for="sel1"><h4 style="color: white">Time of Encounter</h4></label>
+         <select class="form-control" name="encounter_time" id="encounter_time">
+           <option>Select Time of Encounter...</option>
+           <option>Random</option>
+           <option>Schedule a time...</option>
+         </select>
         </div><!--dropdown-->
       </div><!--col-md-4-->
     </div> <!--row-->
   </div>
 
   <div class="col-md-5">
-    <button class="btn-block btn-danger" style="height: 150px;" type="submit">
 
-      <p style="font-size: 3em;"><strong>
-        Request Cato
-      </strong></p>
+      <button class="btn-block btn-danger" type="submit" style="height: 150px;" type="submit">
 
-      <p>
-      This action cannot be undone.
-      </p>
-    </button>
+        <p style="font-size: 3em;">
+          <strong>
+          Request Cato
+          </strong>
+        </p>
+
+        <p>
+          This action cannot be undone.
+        </p>
+      </button>
   </div>
   </form>
   </div> <!--row-->
