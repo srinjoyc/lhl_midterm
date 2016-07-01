@@ -1,4 +1,4 @@
-require 'pry'
+# require 'pry'
 class User < ActiveRecord::Base
 
     has_many :encounters_as_attacker, foreign_key: "attacker_id", class_name: "Encounter"
